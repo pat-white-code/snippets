@@ -19,11 +19,4 @@ const pivotHelper = (arr, start = 0, end = arr.length) => {
   return swapIndex;
 }
 
-let arr = [5, 2, 1, 8, 4, 7, 6, 3]
-//                  
-console.log(pivotHelper(arr));
-// return index (4)
-console.log(arr)
-// [2, 1, 4, 3, 5, 8, 7, 6]
-
 module.exports = pivotHelper;
