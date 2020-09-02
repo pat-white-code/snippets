@@ -1,30 +1,29 @@
-const pivot = (startIndex, arr) => {
+const swap = require('./swap');
+
+const pivotHelper = (arr, start = 0, end = arr.length) => {
   // identify the first element in the arry
   // loop through the rest of the arry,
   // if pivot is greater than current item, increment pivot index, and the item at current index with item at current pivotIndex
-  let pivot = arr[startIndex];
-  let end = arr.length - 1;
-  let pivotIndex = 0;
-  for(let i = 1 ; i < arr.length ; i++) {
+  let pivot = arr[start];
+  let swapIndex = 0;
+  for(let i = start + 1 ; i < end; i++) {
     let current = arr[i];
     if(pivot > current) {
-      pivotIndex ++;
+      swapIndex ++;
       // swap item at current with item at pivotIndex;
-      let temp = arr[i];
-      arr[i] = arr[pivotIndex];
-      arr[pivotIndex] = temp;
+      swap(arr, i, swapIndex)
     }
   }
   // swap pivot with item at arr[pivotIndex];
-  let temp = arr[pivotIndex];
-  arr[pivotIndex] = arr[startIndex];
-  arr[startIndex] = temp;
-  return pivotIndex;
+  swap(arr, start, swapIndex)
+  return swapIndex;
 }
 
 let arr = [5, 2, 1, 8, 4, 7, 6, 3]
 //                  
-console.log(pivot(0, arr));
+console.log(pivotHelper(arr));
 // return index (4)
 console.log(arr)
 // [2, 1, 4, 3, 5, 8, 7, 6]
+
+module.exports = pivotHelper;
