@@ -3,6 +3,4 @@ const digitCount = (num) => {
   return Math.floor(Math.log10(Math.abs(num))) + 1;
 }
 
-console.log(digitCount(32423));
-
 module.exports = digitCount;
