@@ -7,4 +7,6 @@ const mostDigits = (nums) => {
   return maxDigits;
 }
 
+// console.log(mostDigits([1324, 4]))
+
 module.exports = mostDigits;
