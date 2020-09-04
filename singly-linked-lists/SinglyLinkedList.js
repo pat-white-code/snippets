@@ -8,10 +8,18 @@ class SinglyLinkedList{
   }
   push(val){
     // add item to end of list
+    let node = new Node(val);
+    if(!this.head) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
+    }
     // create new node based on input val
     // if there is no head, assign new node as head and as tail
     // otherwise, point tail.next to new node, then assign this.tail as new node
-    
+
   }
 }
 
