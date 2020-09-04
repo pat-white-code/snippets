@@ -6,9 +6,9 @@ class SinglyLinkedList{
     this.tail = null;
     this.length = 0;
   }
-  push(val){
+  push(val) {
     // add item to end of list
-    let node = new Node(val);
+    let node = new ListNode(val);
     if(!this.head) {
       this.head = node;
       this.tail = node;
@@ -16,13 +16,18 @@ class SinglyLinkedList{
       this.tail.next = node;
       this.tail = node;
     }
+    this.length++
+    return this;
     // create new node based on input val
     // if there is no head, assign new node as head and as tail
     // otherwise, point tail.next to new node, then assign this.tail as new node
-
   }
 }
 
-let newNode = new ListNode(55);
+let list = new SinglyLinkedList();
 
-console.log(newNode);
+list.push(55);
+list.push(100);
+list.push(-2);
+
+console.log(list);
