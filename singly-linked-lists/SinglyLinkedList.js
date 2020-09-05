@@ -22,50 +22,35 @@ class SinglyLinkedList{
     // if there is no head, assign new node as head and as tail
     // otherwise, point tail.next to new node, then assign this.tail as new node
   }
-  pop() {
-    // remove the item from the end of the list
-    // return the removed node.
-    // traverse the list, the current node is called current.
-    // if current.next.next = null,
-    // save removed as current.next.next;
-    // set current.next = null
-    // this.tail = current.
-    // return removed
-    let current = this.head;
+
+  pop(){
     if(!this.head) return undefined;
 
-    if(this.length === 1) {
-      let removed = this.head;
-      this.head = null;
-      this.tail = null;
-      this.length --;
-      return removed;
-    }
-    while(current){
-      if(current.next.next === null){
-        let removed = current.next;
-        this.tail = current;
-        current.next = null;
-        this.length --
-        if(this.length < 1){
-          this.head = null;
-          this.tail = null;
-        }
-        return removed;
-      }
+    let current = this.head;
+    let newTail = this.head;
+    while(current.next){
+      newTail = current;
       current = current.next;
     }
+    newTail.next = null;
+    this.tail = newTail;
+    this.length --;
+    if(this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    } 
+    return current;
   }
 }
 
-let list = new SinglyLinkedList();
+// let list = new SinglyLinkedList();
 
-list.push(55);
-list.push(100);
-list.push(-2);
+// list.push(55);
+// list.push(100);
+// list.push(-2);
 
-console.log('POPPED', list.pop())
+// console.log('POPPED', list.pop())
 
-console.log(list);
+// console.log(list);
 
 module.exports = SinglyLinkedList;
