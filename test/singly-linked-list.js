@@ -1,4 +1,5 @@
-const assert = require('assert');
+// const assert = require('assert');
+const assert = require('chai').assert
 const SinglyLinkedList = require('../singly-linked-lists/SinglyLinkedList');
 
 describe('Singly Linked Lists', ()=>{
@@ -36,5 +37,41 @@ describe('Singly Linked Lists', ()=>{
       assert.deepEqual(expected, actual);
     })
     // it('should should update the list length', ()=>{})
+  })
+  describe('#pop', ()=>{
+    it('should return the last node of the list', ()=>{
+      let newList = new SinglyLinkedList;
+      newList.push(1)
+      newList.push(2)
+      newList.push(3)
+
+      let removed = newList.pop()
+      let expected = {val: 3, next:null};
+
+      assert.deepEqual(removed, expected);
+    })
+    it('should reduce the size of the list by 1', ()=>{
+      let newList = new SinglyLinkedList;
+      newList.push(1)
+      newList.push(2)
+      newList.push(3)
+      newList.pop();
+
+      let actual = newList.length;
+      let expected = 2;
+
+      assert.deepEqual(actual, expected);
+    })
+    it('should remove the removed node', ()=>{
+      let newList = new SinglyLinkedList();
+
+      newList.push(1);
+      newList.pop();
+
+      let actual = newList.head;
+      let expected = undefined;
+
+      assert.equal(actual, expected);
+    }) 
   })
 })

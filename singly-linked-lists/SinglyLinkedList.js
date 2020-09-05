@@ -33,17 +33,24 @@ class SinglyLinkedList{
     // return removed
     let current = this.head;
     if(!this.head) return undefined;
-    if(!this.tail) {
+
+    if(this.length === 1) {
+      let removed = this.head;
       this.head = null;
-      this.length --
-      return current;
+      this.tail = null;
+      this.length --;
+      return removed;
     }
-    while(current.next){
+    while(current){
       if(current.next.next === null){
         let removed = current.next;
         this.tail = current;
         current.next = null;
         this.length --
+        if(this.length < 1){
+          this.head = null;
+          this.tail = null;
+        }
         return removed;
       }
       current = current.next;

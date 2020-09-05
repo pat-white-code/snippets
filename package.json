@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "pivotHelper.js",
-  "dependencies": {},
+  "dependencies": {
+    "chai": "^4.2.0"
+  },
   "devDependencies": {
     "mocha": "^8.1.3"
   },
