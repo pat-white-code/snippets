@@ -41,6 +41,19 @@ class SinglyLinkedList{
     } 
     return current;
   }
+  shift() {
+    if(!this.head) return undefined;
+    // remove the first item of the singly linked list.
+    let removed = this.head;
+    let newHead = this.head.next;
+    this.head = newHead;
+    this.length--
+    if(this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return removed;
+  }
 }
 
 // let list = new SinglyLinkedList();
@@ -49,7 +62,7 @@ class SinglyLinkedList{
 // list.push(100);
 // list.push(-2);
 
-// console.log('POPPED', list.pop())
+// console.log('SHIFTED', list.shift())
 
 // console.log(list);
 

@@ -1,6 +1,7 @@
 // const assert = require('assert');
 const assert = require('chai').assert
 const SinglyLinkedList = require('../singly-linked-lists/SinglyLinkedList');
+const should = require('chai').should()
 
 describe('Singly Linked Lists', ()=>{
   describe('#push', ()=>{
@@ -73,5 +74,55 @@ describe('Singly Linked Lists', ()=>{
 
       assert.equal(actual, expected);
     }) 
+  })
+  describe('#shift', ()=>{
+    it('should return the first node of the list', ()=>{
+      let newList = new SinglyLinkedList;
+      newList.push(1)
+      newList.push(2)
+      newList.push(3)
+
+      let returned = newList.shift();
+      let expected = 1;
+
+      returned.val.should.equal(expected)
+    })
+    it('should reduce the size of the list by 1', ()=>{
+      let newList = new SinglyLinkedList;
+      newList.push(1)
+      newList.push(2)
+      newList.push(3)
+      newList.shift();
+
+      // let actual = newList.length;
+      // let expected = 2;
+
+      newList.length.should.equal(2);
+    })
+    it('should work with single node list', ()=>{
+      let newList = new SinglyLinkedList();
+
+      newList.push(1);
+      newList.shift();
+
+      assert.equal(newList.head, null);
+      assert.equal(newList.tail, null);
+      assert.equal(newList.length, 0);
+    })
+    it('should reset the new head', ()=>{
+      let newList = new SinglyLinkedList();
+
+      newList.push(1);
+      newList.push(2);
+      newList.push(3);
+      newList.shift();
+
+      assert.equal(newList.head.val, 2);
+    })
+    it('should return undefined if list is empty', ()=>{
+      let newList = new SinglyLinkedList;
+      let returned = newList.shift();
+      assert.equal(returned, undefined);
+    })
   })
 })
