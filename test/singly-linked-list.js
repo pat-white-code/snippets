@@ -125,7 +125,7 @@ describe('Singly Linked Lists', ()=>{
       assert.equal(returned, undefined);
     })
   })
-  describe('#shift', ()=>{
+  describe('#unshift', ()=>{
     it('should re-assign the inserted value as the new head', ()=>{
       let newList = new SinglyLinkedList;
       newList.push(1)
@@ -158,6 +158,15 @@ describe('Singly Linked Lists', ()=>{
 
       assert.deepEqual(newList.tail, {val:1, next: null});
       assert.deepEqual(newList.head, {val:2, next: {val:1, next: null}});
+    })
+    it('should return the list', ()=>{
+      let newList = new SinglyLinkedList();
+      newList.push(1);
+      newList.push(2);
+      let returned = newList.unshift(3);
+      let expected = {head:{val:3, next: {val: 1, next: {val: 2, next: null}}}, tail:{ val: 2, next: null}, length: 3}
+
+      assert.deepEqual(returned, expected);
     })
   })
 })
