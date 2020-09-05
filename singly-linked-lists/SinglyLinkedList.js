@@ -64,15 +64,40 @@ class SinglyLinkedList{
     }
     return this;
   }
+
+  get(idx) {
+    if(idx < 0 || idx >= this.length) {
+      return undefined
+    }
+    if(idx === this.length - 1) {
+      return this.tail
+    }
+    // given an int, return the nth item of the linked list
+    // get(0) returns the head, etc.
+    let current = this.head;
+    let i = 0;
+    while(i < idx && current.next) {
+      current = current.next
+      i++
+    }
+    // if(idx !== i) return undefined;
+    
+    return current;
+  }
 }
 
-// let list = new SinglyLinkedList();
+// get(2)
+//           idx
+//  0 -> 1 -> 2 -> 3
+//            C
 
-// list.push(55);
-// list.push(100);
-// list.push(-2);
+let list = new SinglyLinkedList();
 
-// console.log('SHIFTED', list.shift())
+list.push(55);
+list.push(100);
+list.push(-2);
+
+console.log('GET', list.get(3));
 
 // console.log(list);
 
