@@ -43,13 +43,10 @@ class SinglyLinkedList{
   }
   shift() {
     if(!this.head) return undefined;
-    // remove the first item of the singly linked list.
     let removed = this.head;
-    let newHead = this.head.next;
-    this.head = newHead;
+    this.head = removed.next;
     this.length--
     if(this.length === 0) {
-      this.head = null;
       this.tail = null;
     }
     return removed;

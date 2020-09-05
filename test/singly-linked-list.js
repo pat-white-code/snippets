@@ -125,4 +125,39 @@ describe('Singly Linked Lists', ()=>{
       assert.equal(returned, undefined);
     })
   })
+  describe('#shift', ()=>{
+    it('should re-assign the inserted value as the new head', ()=>{
+      let newList = new SinglyLinkedList;
+      newList.push(1)
+      newList.push(2)
+      newList.push(3)
+      newList.unshift(4);
+
+      assert.equal(newList.head.val, 4)
+      assert.equal(newList.head.next.val, 1)
+    })
+    it('should increment the list by 1', ()=>{
+      let newList = new SinglyLinkedList();
+      newList.push(1);
+      newList.unshift(2);
+
+      assert.equal(newList.length, 2);
+    })
+    it('should work with empty lists', ()=>{
+      let newList = new SinglyLinkedList();
+
+      newList.unshift(1)
+
+      assert.deepEqual(newList.head, {val: 1, next: null});
+      assert.deepEqual(newList.tail, {val: 1, next: null});
+    })
+    it('should work with 1-item lists', ()=>{
+      let newList = new SinglyLinkedList;
+      newList.push(1);
+      newList.unshift(2);
+
+      assert.deepEqual(newList.tail, {val:1, next: null});
+      assert.deepEqual(newList.head, {val:2, next: {val:1, next: null}});
+    })
+  })
 })
