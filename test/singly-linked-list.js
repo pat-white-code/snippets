@@ -169,4 +169,29 @@ describe('Singly Linked Lists', ()=>{
       assert.deepEqual(returned, expected);
     })
   })
+  describe('#get', ()=> {
+    it('should return the targeted node at the given index', ()=>{
+      let newList = new SinglyLinkedList();
+      newList.push(1);
+      newList.push(2);
+      newList.push(3);
+
+      let returned = newList.get(2);
+      let expected = {val: 3, next: null};
+
+      assert.deepEqual(returned, expected);
+    })
+    it('shoudl return undefined if index is erroneous', ()=>{
+      let newList = new SinglyLinkedList();
+      newList.push(1);
+      newList.push(2);
+      newList.push(3);
+
+      let negNum = newList.get(-1)
+      let tooBig = newList.get(5)
+
+      assert.equal(negNum, undefined);
+      assert.equal(tooBig, undefined);
+    })
+  })
 })
