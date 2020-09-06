@@ -90,6 +90,28 @@ class SinglyLinkedList{
     node.val = val;
     return true;
   }
+
+  insert(idx, val) {
+    this.length++;
+    // given an index, insert a new node at that index.
+    // the previous node needs to point to the new node.
+    // the new node needs to point to the disposioned node.
+
+    let newNode = new ListNode(val);
+    let current = this.head;
+    let prevNode = null;
+    let i = 0;
+    while(i < idx) {
+      prevNode = current;
+      current = current.next;
+      i++
+    }
+    newNode.next = current;
+    prevNode.next = newNode;
+    //      P    C
+    // 1 -> 2 -> 3 -> 4
+
+  }
 }
 
 // get(2)
@@ -103,7 +125,9 @@ list.push(55);
 list.push(100);
 list.push(-2);
 
-console.log('GET', list.get(3));
+list.insert(1, 'INSERT!');
+
+console.log(list);
 
 // console.log(list);
 
