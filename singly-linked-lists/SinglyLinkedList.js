@@ -92,22 +92,29 @@ class SinglyLinkedList{
   }
 
   insert(idx, val) {
-    this.length++;
-    // given an index, insert a new node at that index.
-    // the previous node needs to point to the new node.
-    // the new node needs to point to the disposioned node.
+    if(idx > this.length) return -1;
 
     let newNode = new ListNode(val);
-    let current = this.head;
-    let prevNode = null;
-    let i = 0;
-    while(i < idx) {
-      prevNode = current;
-      current = current.next;
-      i++
+
+    if(idx === this.length) {
+      this.tail = newNode;
     }
-    newNode.next = current;
-    prevNode.next = newNode;
+    if(idx === 0) {
+      newNode.next = this.head
+      this.head = newNode;
+    } else {
+      let current = this.head;
+      let prevNode = null;
+      let i = 0;
+      while(i < idx) {
+        prevNode = current;
+        current = current.next;
+        i++
+      }
+      newNode.next = current;
+      if(prevNode) { prevNode.next = newNode };
+    }
+    this.length++
     //      P    C
     // 1 -> 2 -> 3 -> 4
 
@@ -121,11 +128,7 @@ class SinglyLinkedList{
 
 let list = new SinglyLinkedList();
 
-list.push(55);
-list.push(100);
-list.push(-2);
-
-list.insert(1, 'INSERT!');
+list.insert(0, 'INSERT!');
 
 console.log(list);
 

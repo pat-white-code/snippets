@@ -251,7 +251,7 @@ describe('Singly Linked Lists', ()=>{
       assert.equal(inserted.next.val, 2);
       assert.equal(list.get(0).next.val, 4);
     })
-    it('should should increase the list of the list', ()=>{
+    it('should increase the list of the list', ()=>{
       let list = new SinglyLinkedList();
       list.push(1);
       list.push(2);
@@ -262,6 +262,23 @@ describe('Singly Linked Lists', ()=>{
       let expected = 4;
 
       assert.equal(actual, expected);
+    })
+    it('should work on empty lists', ()=>{
+      let list = new SinglyLinkedList();
+      list.insert(0, 'insert');
+
+      let actualHead = list.head.val;
+      let expectedHead = 'insert';
+
+      let actualTail = list.tail.val;
+      let expectedTail = 'insert';
+
+      let actualLength = list.length;
+      let expectedLength = 1;
+
+      assert.equal(actualHead, expectedHead);
+      assert.equal(actualLength, expectedLength);
+      assert.equal(actualTail, expectedTail);
     })
   })
 })
