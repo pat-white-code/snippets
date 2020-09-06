@@ -76,13 +76,19 @@ class SinglyLinkedList{
     // get(0) returns the head, etc.
     let current = this.head;
     let i = 0;
-    while(i < idx && current.next) {
+    while(i !== idx) {
       current = current.next
       i++
     }
     // if(idx !== i) return undefined;
-    
     return current;
+  }
+
+  set(idx, val) {
+    let node = this.get(idx);
+    if(!node) return false;
+    node.val = val;
+    return true;
   }
 }
 

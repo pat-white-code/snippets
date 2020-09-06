@@ -194,4 +194,74 @@ describe('Singly Linked Lists', ()=>{
       assert.equal(tooBig, undefined);
     })
   })
+  describe('#set', ()=> {
+    it('should change the value of a given index', ()=> {
+      let list = new SinglyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+
+      list.set(1, 4);
+
+      let actual = list.get(1).val;
+      let expected = 4;
+
+      assert.equal(actual, expected);
+    })
+    it('should return true if the index is valid', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+
+      let actual = list.set(0, 4);
+      let expected = true;
+
+      assert.equal(actual, expected);
+    })
+    it('should return false if the index is not valid', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+
+      list.set(0);
+      let actual1 = list.set(5, 4);
+      let expected1 = false;
+
+      let actual2 = list.set(-1, 4);
+      let expected2 = false;
+
+      assert.equal(actual1, expected1);
+      assert.equal(actual2, expected2);
+    })
+  })
+  describe('#insert', ()=> {
+    it('should insert a new node at the given index', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      list.insert(1, 4);
+      let inserted = list.get(1);
+      let expected = 4;
+
+      assert.equal(inserted.val, expected);
+      assert.equal(inserted.next.val, 2);
+      assert.equal(list.get(0).next.val, 4);
+    })
+    it('should should increase the list of the list', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.insert(1, 4);
+
+      let actual = list.length
+      let expected = 4;
+
+      assert.equal(actual, expected);
+    })
+  })
 })
