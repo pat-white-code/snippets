@@ -281,4 +281,72 @@ describe('Singly Linked Lists', ()=>{
       assert.equal(actualTail, expectedTail);
     })
   })
+  describe('#remove', ()=> {
+    it('should insert a new node at the given index', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+  
+    })
+    it('should remove the targeted node from the linked list', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.remove(1);
+
+      let actual = lis.get(1).val;
+      let expected = 3;
+
+      assert.equal(actual, expected);
+    })
+    it('should change the tail if needed', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.remove(2);
+
+      let actualTail = list.tail.val;
+      let expectedTail = 2;
+      
+      assert.equal(actualTail, expectedTail);
+    })
+    it('should change the head if needed', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.remove(0);
+
+      let actualHead = list.head.val;
+      let expectedHead = 2;
+
+      assert.equal(actualHead, expectedHead);
+    })
+    it('should return true if valid', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      
+      let actualReturn = list.remove(1);
+      let expectedReturn = true;
+
+      assert.equal(actualReturn, expectedReturn);
+    })
+    it('should return false if invalid', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      
+      let actualReturn = list.remove(5);
+      let expectedReturn = false;
+
+      assert.equal(actualReturn, expectedReturn);
+    })
+  })
 })
