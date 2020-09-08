@@ -141,28 +141,22 @@ class SinglyLinkedList{
     prev.next = current.next;
     this.length --;
     return removed;
-    //           C
-    // 1 -> 2 -> 3 -> 4
-    //      P
   }
 
   reverse(){
 
     let current = this.head;
-    // let next = current.next;
     let previous = null;
 
     while(current) {
       let next = current.next;
       current.next = previous;
+      previous = current;
       current = next;
     }
     let temp = this.head;
     this.head = this.tail;
     this.tail = temp;
-    //    P    C    N
-    // <- 1 <- 2 -> 3 -> 4 
-    // 
   }
 
 }
@@ -174,7 +168,10 @@ class SinglyLinkedList{
 
 let list = new SinglyLinkedList();
 
-list.insert(0, 'INSERT!');
+list.push(1)
+list.push(2)
+list.push(3)
+list.reverse();
 
 console.log(list);
 

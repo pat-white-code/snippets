@@ -330,4 +330,48 @@ describe('Singly Linked Lists', ()=>{
       assert.equal(actualReturn, expectedReturn);
     })
   })
+  describe('#reverse', ()=> {
+    it('should reverse the order of the nodes', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+      list.push(4)
+      
+      list.reverse();
+
+      let actual0 = list.get(0).val
+      let actual1 = list.get(1).val
+      let actual2 = list.get(2).val
+      let actual3 = list.get(3).val
+
+      let expected0 = 4;
+      let expected1 = 3;
+      let expected2 = 2;
+      let expected3 = 1;
+
+      assert.equal(actual0, expected0)
+      assert.equal(actual1, expected1)
+      assert.equal(actual2, expected2)
+      assert.equal(actual3, expected3)
+    })
+    it('should swap the head and the tail', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+      list.push(4)
+
+      list.reverse();
+
+      let actualHead = list.head.val
+      let actualTail = list.tail.val
+
+      let expectedHead = 4;
+      let expectedTail = 1;
+
+      assert.equal(actualHead, expectedHead)
+      assert.equal(actualTail, expectedTail)
+    })
+  })
 })
