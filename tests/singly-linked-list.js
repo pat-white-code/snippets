@@ -1,6 +1,6 @@
 // const assert = require('assert');
 const assert = require('chai').assert
-const SinglyLinkedList = require('../../singly-linked-lists/SinglyLinkedList');
+const SinglyLinkedList = require('../singly-linked-lists/SinglyLinkedList');
 const should = require('chai').should()
 
 describe('Singly Linked Lists', ()=>{

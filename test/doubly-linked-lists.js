@@ -53,4 +53,29 @@ describe('Doubly Linked Lists', ()=> {
       expect(returned).to.have.property('tail').to.be.an('object').with.property('val').to.equal(3);
     })
   })
+  describe('#Pop', ()=> {
+    it('Should remove the last node of the list', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+
+      list.pop();
+
+      expect(list).to.be.an('object').with.property('length').to.equal(2);
+      expect(list).to.be.an('object').with.property('tail').to.be.an('object').with.property('val').to.equal(2);
+    })
+    it('Should return the popped node', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+      
+      let returned = pop();
+
+      expect(returned).to.be.an('object').with.property('val').to.equal(3);
+      expect(returned).to.be.an('object').with.property('next').to.equal(null);
+      expect(returned).to.be.an('object').with.property('prev').to.be.an('object');
+    })
+  })
 })
