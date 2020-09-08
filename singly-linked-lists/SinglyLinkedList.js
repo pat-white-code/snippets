@@ -146,6 +146,25 @@ class SinglyLinkedList{
     //      P
   }
 
+  reverse(){
+
+    let current = this.head;
+    // let next = current.next;
+    let previous = null;
+
+    while(current) {
+      let next = current.next;
+      current.next = previous;
+      current = next;
+    }
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+    //    P    C    N
+    // <- 1 <- 2 -> 3 -> 4 
+    // 
+  }
+
 }
 
 // get(2)
