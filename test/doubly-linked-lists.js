@@ -190,5 +190,15 @@ describe('Doubly Linked Lists', ()=> {
       expect(returned).to.be.an('object').with.property('prev').to.equal(null);
       expect(removed).to.equal(true);
     })
+    it('should sever connection from new head', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.shift();
+
+      expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('prev').to.equal(null);
+      expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('val').to.equal(2);
+    })
   })
 })
