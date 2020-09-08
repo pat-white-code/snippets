@@ -373,5 +373,18 @@ describe('Singly Linked Lists', ()=>{
       assert.equal(actualHead, expectedHead)
       assert.equal(actualTail, expectedTail)
     })
+    it('should have a tail with null next value', ()=>{
+      let list = new SinglyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+
+      list.reverse();
+
+      let actual = list.tail.next;
+      let expected = null;
+
+      assert.equal(actual, expected)
+    })
   })
 })
