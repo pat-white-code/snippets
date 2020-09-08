@@ -1,3 +1,4 @@
+const Node = require('./Node');
 
 class DoublyLinkedList {
   constructor(){
@@ -15,6 +16,9 @@ class DoublyLinkedList {
     let oldTail = this.tail;
     oldTail.next = newNode;
     newNode.prev = oldTail;
+    this.tail = newNode;
+    this.length++;
+    return this;
   }
 }
 
