@@ -54,7 +54,7 @@ describe('Doubly Linked Lists', ()=> {
     })
   })
   describe('#Pop', ()=> {
-    it('Should remove the last node of the list', ()=>{
+    it('should remove the last node of the list', ()=>{
       let list = new DoublyLinkedList();
       list.push(1)
       list.push(2)
@@ -65,17 +65,62 @@ describe('Doubly Linked Lists', ()=> {
       expect(list).to.be.an('object').with.property('length').to.equal(2);
       expect(list).to.be.an('object').with.property('tail').to.be.an('object').with.property('val').to.equal(2);
     })
-    it('Should return the popped node', ()=>{
+    it('should return the popped node with no connection to the list', ()=>{
       let list = new DoublyLinkedList();
       list.push(1)
       list.push(2)
       list.push(3)
       
-      let returned = pop();
+      let returned = list.pop();
 
       expect(returned).to.be.an('object').with.property('val').to.equal(3);
       expect(returned).to.be.an('object').with.property('next').to.equal(null);
-      expect(returned).to.be.an('object').with.property('prev').to.be.an('object');
+      expect(returned).to.be.an('object').with.property('prev').to.equal(null);
+    })
+    it('should return undefined with an empty list', ()=>{
+      let list = new DoublyLinkedList();
+      let returned = list.pop();
+
+      expect(returned).to.equal(undefined);
+    })
+    it('should update head on single item list', ()=> {
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.pop();
+
+      expect(list).to.be.an('object').with.property('head').to.equal(null);
+    })
+  })
+  describe('#contains', ()=> {
+    it('should return true if a node with the given value is present in the list', ()=>{
+      let list = DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      let returned = list.contains(2)
+
+      expect(returned).to.be.a('boolean');
+      expect(returned).to.equal(true);
+    })
+    it('should return false if a node with the given value is absent from list', ()=>{
+      let list = DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      let returned = list.contains(5)
+
+      expect(returned).to.be.a('boolean');
+      expect(returned).to.equal(false);
+    })
+    it('should return false if list is empty', ()=>{
+      let list = DoublyLinkedList();
+
+      let returned = list.contains(5)
+
+      expect(returned).to.be.a('boolean');
+      expect(returned).to.equal(false);
     })
   })
 })
