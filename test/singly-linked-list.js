@@ -318,13 +318,13 @@ describe('Singly Linked Lists', ()=>{
 
       assert.equal(actualHead, expectedHead);
     })
-    it('should return value of removed node', ()=>{
+    it('should return the removed', ()=>{
       let list = new SinglyLinkedList();
       list.push(1);
       list.push(2);
       list.push(3);
       
-      let actualReturn = list.remove(1);
+      let actualReturn = list.remove(1).val;
       let expectedReturn = 2;
 
       assert.equal(actualReturn, expectedReturn);

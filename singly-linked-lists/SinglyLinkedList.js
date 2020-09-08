@@ -121,9 +121,9 @@ class SinglyLinkedList{
   }
 
   remove(idx) {
-    if(idx < 0 || idx >= this.length) return false;
+    if(idx < 0 || idx >= this.length) return undefined;
     // if idx === 0, shift
-    if(idx === 0) return this.shift(idx)
+    if(idx === 0) return this.shift()
     // if idx === length, pop()
     if(idx === this.length - 1) return this.pop();
     // traverse the array
@@ -137,10 +137,10 @@ class SinglyLinkedList{
       current = current.next;
       i++
     }
-    let removed = current.val;
+    let removed = current;
     prev.next = current.next;
     this.length --;
-    return removed
+    return removed;
     //           C
     // 1 -> 2 -> 3 -> 4
     //      P
