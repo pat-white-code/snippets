@@ -61,9 +61,12 @@ describe('Doubly Linked Lists', ()=> {
       list.push(3)
 
       list.pop();
+      let removed = !list.contains(3);
 
       expect(list).to.be.an('object').with.property('length').to.equal(2);
       expect(list).to.be.an('object').with.property('tail').to.be.an('object').with.property('val').to.equal(2);
+      expect(removed).to.equal(true);
+
     })
     it('should return the popped node with no connection to the list', ()=>{
       let list = new DoublyLinkedList();
@@ -93,7 +96,7 @@ describe('Doubly Linked Lists', ()=> {
   })
   describe('#contains', ()=> {
     it('should return true if a node with the given value is present in the list', ()=>{
-      let list = DoublyLinkedList();
+      let list = new DoublyLinkedList();
       list.push(1);
       list.push(2);
       list.push(3);
@@ -104,7 +107,7 @@ describe('Doubly Linked Lists', ()=> {
       expect(returned).to.equal(true);
     })
     it('should return false if a node with the given value is absent from list', ()=>{
-      let list = DoublyLinkedList();
+      let list = new DoublyLinkedList();
       list.push(1);
       list.push(2);
       list.push(3);
@@ -115,7 +118,7 @@ describe('Doubly Linked Lists', ()=> {
       expect(returned).to.equal(false);
     })
     it('should return false if list is empty', ()=>{
-      let list = DoublyLinkedList();
+      let list = new DoublyLinkedList();
 
       let returned = list.contains(5)
 

@@ -35,6 +35,15 @@ class DoublyLinkedList {
     this.length --;
     return poppedNode;
   }
+
+  contains(val){
+    let current = this.head;
+    while(current) {
+      if(current.val === val) return true
+      current = current.next
+    }
+    return false
+  }
 }
 
 module.exports = DoublyLinkedList;
