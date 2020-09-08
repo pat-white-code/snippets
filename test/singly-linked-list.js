@@ -282,14 +282,6 @@ describe('Singly Linked Lists', ()=>{
     })
   })
   describe('#remove', ()=> {
-    it('should insert a new node at the given index', ()=>{
-      let list = new SinglyLinkedList();
-      list.push(1);
-      list.push(2);
-      list.push(3);
-
-  
-    })
     it('should remove the targeted node from the linked list', ()=>{
       let list = new SinglyLinkedList();
       list.push(1);
@@ -297,7 +289,7 @@ describe('Singly Linked Lists', ()=>{
       list.push(3);
       list.remove(1);
 
-      let actual = lis.get(1).val;
+      let actual = list.get(1).val;
       let expected = 3;
 
       assert.equal(actual, expected);
@@ -326,25 +318,14 @@ describe('Singly Linked Lists', ()=>{
 
       assert.equal(actualHead, expectedHead);
     })
-    it('should return true if valid', ()=>{
+    it('should return value of removed node', ()=>{
       let list = new SinglyLinkedList();
       list.push(1);
       list.push(2);
       list.push(3);
       
       let actualReturn = list.remove(1);
-      let expectedReturn = true;
-
-      assert.equal(actualReturn, expectedReturn);
-    })
-    it('should return false if invalid', ()=>{
-      let list = new SinglyLinkedList();
-      list.push(1);
-      list.push(2);
-      list.push(3);
-      
-      let actualReturn = list.remove(5);
-      let expectedReturn = false;
+      let expectedReturn = 2;
 
       assert.equal(actualReturn, expectedReturn);
     })

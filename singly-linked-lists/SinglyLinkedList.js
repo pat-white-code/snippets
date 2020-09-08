@@ -119,6 +119,33 @@ class SinglyLinkedList{
     // 1 -> 2 -> 3 -> 4
 
   }
+
+  remove(idx) {
+    if(idx < 0 || idx >= this.length) return false;
+    // if idx === 0, shift
+    if(idx === 0) return this.shift(idx)
+    // if idx === length, pop()
+    if(idx === this.length - 1) return this.pop();
+    // traverse the array
+    // find the targeted index
+    // set the previous node.next = current.next
+    let current = this.head
+    let prev = null;
+    let i = 0;
+    while(i !== idx) {
+      prev = current;
+      current = current.next;
+      i++
+    }
+    let removed = current.val;
+    prev.next = current.next;
+    this.length --;
+    return removed
+    //           C
+    // 1 -> 2 -> 3 -> 4
+    //      P
+  }
+
 }
 
 // get(2)
