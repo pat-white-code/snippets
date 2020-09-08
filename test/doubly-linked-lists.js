@@ -126,4 +126,69 @@ describe('Doubly Linked Lists', ()=> {
       expect(returned).to.equal(false);
     })
   })
+  describe('#shift', ()=>{
+    it('should remove the first node from the linked list', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      list.shift()
+      let removed = !list.contains(1);
+
+      expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('val').to.equal(2);
+      expect(removed).to.equal(true)
+    })
+    it('should decrement the length of the list', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      list.shift()
+
+      expect(list).to.be.an('object').with.property('length').to.equal(2);
+    })
+    it('should reassign the head', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      list.shift()
+
+      expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('val').to.equal(2);
+    })
+    it('should reassign the tail for single node list', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+
+      list.shift()
+
+      expect(list).to.be.an('object').with.property('head').to.equal(null);
+      expect(list).to.be.an('object').with.property('tail').to.equal(null);
+      expect(list).to.be.an('object').with.property('length').to.equal(0);
+    })
+    it('should return undefined if list is empty', ()=>{
+      let list = new DoublyLinkedList();
+
+      let returned = list.shift()
+
+      expect(returned).to.equal(undefined);
+    })
+    it('should return the removed node', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      let returned = list.shift();
+      let removed = !list.contains(1);
+
+      expect(returned).to.be.an('object').with.property('val').to.equal(1);
+      expect(returned).to.be.an('object').with.property('next').to.equal(null);
+      expect(returned).to.be.an('object').with.property('prev').to.equal(null);
+      expect(removed).to.equal(true);
+    })
+  })
 })
