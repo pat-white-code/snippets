@@ -1,7 +1,7 @@
-const Node = require('./Node');
+const Node = require("./Node");
 
 class DoublyLinkedList {
-  constructor(){
+  constructor() {
     this.head = null;
     this.tail = null;
     this.length = 0;
@@ -9,7 +9,7 @@ class DoublyLinkedList {
 
   push(val) {
     let newNode = new Node(val);
-    if(this.length === 0) {
+    if (this.length === 0) {
       this.head = newNode;
       this.tail = newNode;
     } else {
@@ -22,9 +22,9 @@ class DoublyLinkedList {
   }
 
   pop() {
-    if(!this.head) return undefined;
-    let poppedNode = this.tail
-    if(this.length === 1) {
+    if (!this.head) return undefined;
+    let poppedNode = this.tail;
+    if (this.length === 1) {
       this.head = null;
       this.tail = null;
     } else {
@@ -32,24 +32,24 @@ class DoublyLinkedList {
       this.tail.next = null;
       poppedNode.prev = null;
     }
-    this.length --;
+    this.length--;
     return poppedNode;
   }
 
-  contains(val){
+  contains(val) {
     let current = this.head;
-    while(current) {
-      if(current.val === val) return true
-      current = current.next
+    while (current) {
+      if (current.val === val) return true;
+      current = current.next;
     }
-    return false
+    return false;
   }
 
-  shift(){
-    if(!this.head) return undefined;
+  shift() {
+    if (!this.head) return undefined;
     let shiftedNode = this.head;
 
-    if(this.length === 1) {
+    if (this.length === 1) {
       this.head = null;
       this.tail = null;
     } else {
@@ -57,19 +57,12 @@ class DoublyLinkedList {
       shiftedNode.next = null;
       this.head.prev = null;
     }
-    this.length--
+    this.length--;
     return shiftedNode;
   }
   unshift(val) {
-    // add a node to the start of the list
-    // create the new node
-    // if !this.head, set head and tail = new node;
-    // otherwise
-    // set new node.next = this.head
-    // set this.head.prev = new node
-    // set this.head = new node
     let newNode = new Node(val);
-    if(!this.head) {
+    if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
     } else {
@@ -77,8 +70,29 @@ class DoublyLinkedList {
       this.head.prev = newNode;
       this.head = newNode;
     }
-    this.length++
+    this.length++;
     return this;
+  }
+
+  get(idx) {
+    if (idx < 0 || idx > this.length - 1) return undefined;
+    let mid = Math.floor(this.length / 2);
+    if (idx > mid) {
+      let current = this.tail;
+      let i = this.length - 1;
+      while (i !== idx) {
+        current = current.prev;
+        i--;
+      }
+    } else {
+      let current = this.head;
+      let i = 0;
+      while (i !== idx) {
+        current = current.next;
+        i++;
+      }
+    }
+    return current;
   }
 }
 
