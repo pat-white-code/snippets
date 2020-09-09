@@ -201,4 +201,36 @@ describe('Doubly Linked Lists', ()=> {
       expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('val').to.equal(2);
     })
   })
+  describe('#unshift',()=>{
+    it('should insert new node at head of list', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+      list.unshift(4)
+
+      expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('val').to.equal(4)
+      expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('next').to.be.an('object').with.property('val').to.equal(1)
+
+    })
+    it('should increment the length of the list', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+
+      list.unshift(4)
+
+      expect(list).to.be.an('object').with.property('length').to.equal(4)
+    })
+    it('should work on empty list', ()=>{
+      let list = new DoublyLinkedList();
+
+      list.unshift(4);
+
+      expect(list).to.be.an('object').with.property('length').to.equal(1);
+      expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('val').to.equal(1);
+      expect(list).to.be.an('object').with.property('tail').to.be.an('object').with.property('val').to.equal(1);
+    })
+  })
 })
