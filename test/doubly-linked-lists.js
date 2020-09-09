@@ -229,8 +229,17 @@ describe('Doubly Linked Lists', ()=> {
       list.unshift(4);
 
       expect(list).to.be.an('object').with.property('length').to.equal(1);
-      expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('val').to.equal(1);
-      expect(list).to.be.an('object').with.property('tail').to.be.an('object').with.property('val').to.equal(1);
+      expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('val').to.equal(4);
+      expect(list).to.be.an('object').with.property('tail').to.be.an('object').with.property('val').to.equal(4);
+    })
+    it('should return the list', ()=>{
+      let list = new DoublyLinkedList();
+
+      let returned = list.unshift(1)
+
+      expect(returned).to.be.an('object').with.property('head').to.be.an('object');
+      expect(returned).to.be.an('object').with.property('tail').to.be.an('object');
+      expect(returned).to.be.an('object').with.property('length');
     })
   })
 })

@@ -60,6 +60,26 @@ class DoublyLinkedList {
     this.length--
     return shiftedNode;
   }
+  unshift(val) {
+    // add a node to the start of the list
+    // create the new node
+    // if !this.head, set head and tail = new node;
+    // otherwise
+    // set new node.next = this.head
+    // set this.head.prev = new node
+    // set this.head = new node
+    let newNode = new Node(val);
+    if(!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head.prev = newNode;
+      this.head = newNode;
+    }
+    this.length++
+    return this;
+  }
 }
 
 module.exports = DoublyLinkedList;
