@@ -77,15 +77,16 @@ class DoublyLinkedList {
   get(idx) {
     if (idx < 0 || idx > this.length - 1) return undefined;
     let mid = Math.floor(this.length / 2);
+    let current;
     if (idx > mid) {
-      let current = this.tail;
+      current = this.tail;
       let i = this.length - 1;
       while (i !== idx) {
         current = current.prev;
         i--;
       }
     } else {
-      let current = this.head;
+      current = this.head;
       let i = 0;
       while (i !== idx) {
         current = current.next;
