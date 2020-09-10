@@ -356,8 +356,11 @@ describe('Doubly Linked Lists', ()=> {
 
       list.insert(2, 'a');
       let found = list.get(2);
+      // console.log(list);
 
-      expect(found).to.be.an('objet').with.property('val').to.equal('a');
+      expect(found).to.be.an('object').with.property('val').to.equal('a');
+      expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('prev').to.equal(null);
+      expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('prev').to.equal(null)
     })
     it('should increment the length of the list', ()=>{
       let list = new DoublyLinkedList();
@@ -365,9 +368,9 @@ describe('Doubly Linked Lists', ()=> {
       list.push(2);
       list.push(3);
 
-      list.insert(2, 'a');
+      list.insert(1, 'a');
 
-      expect(list).to.be.an('objet').with.property('length').to.equal(4);
+      expect(list).to.be.an('object').with.property('length').to.equal(4);
     })
     it('should return true when valid', ()=>{
       let list = new DoublyLinkedList();
@@ -375,21 +378,44 @@ describe('Doubly Linked Lists', ()=> {
       list.push(2);
       list.push(3);
 
-      let returned = list.insert(2, 'a');
+      let returned = list.insert(1, 'a');
 
       expect(returned).to.equal(true);
     })
-    it('should return false when invalid/negative', ()=>{
+    it('should return false when invalid', ()=>{
       let list = new DoublyLinkedList();
       list.push(1);
       list.push(2);
       list.push(3);
 
-      let tooBig = list.insert(6, 'a');
+      let tooBig = list.insert(5, 'a');
       let negative = list.insert(-1, 'a');
 
       expect(tooBig).to.equal(false);
       expect(negative).to.equal(false);
+    })
+    it('should work at the beginning', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.insert(0, 'a');
+      let head = list.head;
+
+      expect(head).to.be.an('object').with.property('val').to.equal('a');
+      expect(head).to.be.an('object').with.property('prev').to.equal(null);
+    })
+    it('should work at the end', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      list.insert(3, 'a');
+      let tail = list.tail;
+
+      expect(tail).to.be.an('object').with.property('val').to.equal('a');
+      expect(tail).to.be.an('object').with.property('next').to.equal(null);
     })
   })
 })

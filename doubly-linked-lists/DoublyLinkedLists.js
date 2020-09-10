@@ -102,7 +102,29 @@ class DoublyLinkedList {
     return true;
   }
   insert(idx, val) {
-    console.log(idx, val);
+    if(idx > this.length || idx < 0) return false;
+    if(idx === this.length) {
+      this.push(val);
+      return true;
+    }
+    else if(idx === 0) {
+      this.unshift(val);
+      return true;
+    } else {
+      let newNode = new Node(val);
+      let beforeNode = this.get(idx - 1);
+      let nextNode = beforeNode.next;
+      // 0    1    2 
+      // 1 -> 2 -> 3 
+      //      Bf   Nx
+      beforeNode.next = newNode;
+      nextNode.prev = newNode;
+
+      newNode.prev = beforeNode;
+      newNode.next = nextNode;
+      this.length++;
+      return true;
+    }
   }
 }
 
