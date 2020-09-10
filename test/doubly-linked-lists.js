@@ -283,6 +283,30 @@ describe('Doubly Linked Lists', ()=> {
 
       expect(returned).to.be.an('object').with.property('val').to.equal(3)
     })
+    it('should return undefined for gt length', ()=> {
+      let list = new DoublyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+      list.push(4)
+      list.push(5)
+
+      let returned = list.get(10);
+
+      expect(returned).to.equal(undefined)
+    })
+    it('should return undefined for negative input', ()=> {
+      let list = new DoublyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+      list.push(4)
+      list.push(5)
+
+      let returned = list.get(-1);
+
+      expect(returned).to.equal(undefined)
+    })
   })
   describe('#set', ()=>{
     it('should reset the value of the node at a given index',()=>{
