@@ -119,7 +119,24 @@ class DoublyLinkedList {
     this.length++;
     return true;
   }
-  remove
+  remove(idx) {
+    if(idx < 0 || idx > this.length - 1) return undefined;
+    if(idx === 0) return !!this.shift();
+    if(idx === this.length - 1) return !!this.pop();
+
+    let removed = this.get(idx);
+    let beforeNode = removed.prev;
+    let afterNode = removed.next;
+
+    beforeNode.next = afterNode;
+    afterNode.prev = beforeNode;
+
+    removed.next = null;
+    removed.prev = null;
+
+    this.length --;
+    return removed;
+  }
 }
 
 module.exports = DoublyLinkedList;

@@ -428,7 +428,7 @@ describe('Doubly Linked Lists', ()=> {
 
       list.remove(2);
 
-      let removed = !list.find('remove this');
+      let removed = !list.contains('remove this');
       expect(removed).to.equal(true);
 
     })
