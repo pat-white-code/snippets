@@ -1,8 +1,12 @@
+var chai = require('chai')
+  , expect = chai.expect
+  , should = chai.should();
+
 const assert = require('chai').assert
 const DoublyLinkedList = require('../doubly-linked-lists/DoublyLinkedLists');
-const should = require('chai').should()
+// const should = require('chai').should()
 const Node = require('../doubly-linked-lists/Node');
-const expect = require('chai').expect;
+// const expect = require('chai').expect;
 
 
 describe('Doubly Linked Lists', ()=> {
@@ -279,5 +283,44 @@ describe('Doubly Linked Lists', ()=> {
 
       expect(returned).to.be.an('object').with.property('val').to.equal(3)
     })
+  })
+  describe('#set', ()=>{
+    it('should reset the value of the node at a given index',()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.set(1, 'a');
+      let setNode = list.get(1);
+
+      expect(setNode).to.be.an('object').with.property('val').to.equal('a');
+    } )
+    it('should return true for valid',()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      let returned = list.set(1, 'a');
+
+      expect(returned).to.equal(true)
+    } )
+    it('should return false for invalid',()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      let returned = list.set(5, 'a');
+
+      expect(returned).to.equal(false)
+    } )
+    it('should return false for negative',()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      let returned = list.set(-1, 'a');
+
+      expect(returned).to.equal(false)
+    } )
   })
 })
