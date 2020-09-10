@@ -103,28 +103,21 @@ class DoublyLinkedList {
   }
   insert(idx, val) {
     if(idx > this.length || idx < 0) return false;
-    if(idx === this.length) {
-      this.push(val);
-      return true;
-    }
-    else if(idx === 0) {
-      this.unshift(val);
-      return true;
-    } else {
-      let newNode = new Node(val);
-      let beforeNode = this.get(idx - 1);
-      let nextNode = beforeNode.next;
-      // 0    1    2 
-      // 1 -> 2 -> 3 
-      //      Bf   Nx
-      beforeNode.next = newNode;
-      nextNode.prev = newNode;
+    if(idx === this.length) return !!this.push(val);
+    if(idx === 0) return !!this.unshift(val);
 
-      newNode.prev = beforeNode;
-      newNode.next = nextNode;
-      this.length++;
-      return true;
-    }
+    let newNode = new Node(val);
+    let beforeNode = this.get(idx - 1);
+    let afterNode = beforeNode.next;
+
+    beforeNode.next = newNode;
+    newNode.prev = beforeNode;
+
+    newNode.next = afterNode;
+    afterNode.prev = newNode;
+
+    this.length++;
+    return true;
   }
 }
 
