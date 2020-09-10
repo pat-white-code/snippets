@@ -347,4 +347,49 @@ describe('Doubly Linked Lists', ()=> {
       expect(returned).to.equal(false)
     } )
   })
+  describe('#insert', ()=>{
+    it('should insert the new node at the correct place', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      list.insert(2, 'a');
+      let found = list.get(2);
+
+      expect(found).to.be.an('objet').with.property('val').to.equal('a');
+    })
+    it('should increment the length of the list', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      list.insert(2, 'a');
+
+      expect(list).to.be.an('objet').with.property('length').to.equal(4);
+    })
+    it('should return true when valid', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      let returned = list.insert(2, 'a');
+
+      expect(returned).to.equal(true);
+    })
+    it('should return false when invalid/negative', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      let tooBig = list.insert(6, 'a');
+      let negative = list.insert(-1, 'a');
+
+      expect(tooBig).to.equal(false);
+      expect(negative).to.equal(false);
+    })
+  })
 })

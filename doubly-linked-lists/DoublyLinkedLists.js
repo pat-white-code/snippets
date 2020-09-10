@@ -95,6 +95,15 @@ class DoublyLinkedList {
     }
     return current;
   }
+  set(idx, val) {
+    if(idx > this.length || idx < 0) return false;
+    let node = this.get(idx);
+    node.val = val;
+    return true;
+  }
+  insert(idx, val) {
+    console.log(idx, val);
+  }
 }
 
 module.exports = DoublyLinkedList;

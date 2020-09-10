@@ -1,6 +1,7 @@
 // const assert = require('assert');
 const assert = require('chai').assert
 const SinglyLinkedList = require('../singly-linked-lists/SinglyLinkedList');
+const DoublyLinkedList = require('../doubly-linked-lists/DoublyLinkedLists');
 const should = require('chai').should()
 
 describe('Singly Linked Lists', ()=>{
