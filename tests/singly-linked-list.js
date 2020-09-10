@@ -2,6 +2,7 @@
 const assert = require('chai').assert
 const SinglyLinkedList = require('../singly-linked-lists/SinglyLinkedList');
 const DoublyLinkedList = require('../doubly-linked-lists/DoublyLinkedLists');
+const { expect } = require('chai');
 const should = require('chai').should()
 
 describe('Singly Linked Lists', ()=>{
@@ -386,6 +387,95 @@ describe('Singly Linked Lists', ()=>{
       let expected = null;
 
       assert.equal(actual, expected)
+    })
+  })
+  describe('#remove',()=>{
+    it('should remove the targeted item from the list', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push('remove this');
+      list.push(4);
+
+      list.remove(2);
+
+      let removed = !list.find('remove this');
+      expect(removed).to.equal(true);
+
+    })
+    it('should decrement the length of the list', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push('remove this');
+      list.push(4);
+
+      list.remove(2);
+
+      expect(list.length).to.equal(3);
+    })
+    it('should maintain list connections', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push('remove this');
+      list.push(4);
+
+      list.remove(2);
+      let first = list.get(0);
+      let second = list.get(1);
+      let third = list.get(2);
+
+      expect(first.next).to.deep.equal(second);
+      expect(first.prev).to.equal(null);
+      expect(second.prev).to.deep.equal(first);
+      expect(second.next).to.deep.equal(third);
+      expect(third.prev).to.deep.equal(second);
+      expect(third.next).to.equal(null);
+    })
+    it('should return the removed node with no connections', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push('remove this');
+      list.push(4);
+
+      let returned = list.remove(2);
+
+      expect(returned).to.be.an('object').with.property('val').to.equal('remove this');
+      expect(returned).to.be.an('object').with.property('next').to.equal(null);
+      expect(returned).to.be.an('object').with.property('prev').to.equal(null);
+    })
+    it('should return undefined for invalid', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      let returned = list.remove(5);
+
+      expect(returned).to.equal(undefined)
+      expect(list.length).to.equal(3)
+    })
+    it('should work on the head', ()=>{
+      let list = new DoublyLinkedList();
+      list.push('remove this');
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.remove(0);
+      
+      expect(list.head.val).to.equal(1);
+    })
+    it('should work on the tail', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.push('remove this');
+      list.remove(3);
+      
+      expect(list.tail.val).to.equal(3);
     })
   })
 })
