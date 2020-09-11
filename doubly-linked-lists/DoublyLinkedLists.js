@@ -134,7 +134,7 @@ class DoublyLinkedList {
     removed.next = null;
     removed.prev = null;
 
-    this.length --;
+    this.length-- ;
     return removed;
   }
 }

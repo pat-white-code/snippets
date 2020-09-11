@@ -507,4 +507,69 @@ describe('Doubly Linked Lists', ()=> {
       expect(list.tail.val).to.equal(3);
     })
   })
+  describe('#reverse',()=>{
+    it('should reverse the list', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1)
+      list.push(2)
+      list.push(3)
+      list.push(4)
+      list.reverse();
+
+      let first = list.get(0).val
+      let second = list.get(1).val
+      let third = list.get(2).val
+      let fourth = list.get(3).val
+
+      expect(first).to.equal(4)
+      expect(second).to.equal(3)
+      expect(third).to.equal(2)
+      expect(fourth).to.equal(1)
+    })
+    it('should maintain list connections', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.reverse();
+
+      let first = list.get(0);
+      let second = list.get(1);
+      let third = list.get(2);
+
+      expect(first.next).to.deep.equal(second);
+      expect(first.prev).to.equal(null);
+      expect(second.prev).to.deep.equal(first);
+      expect(second.next).to.deep.equal(third);
+      expect(third.prev).to.deep.equal(second);
+      expect(third.next).to.equal(null);
+    })
+    it('should switch head/tail', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.reverse();
+
+      expect(list).to.be.an('object').with.property('head').to.be.an('object').with.property('val').to.equal(3)
+      expect(list).to.be.an('object').with.property('tail').to.have.property('val').to.equal(1);
+    })
+    it('should return the list', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      let returned = list.reverse();
+
+      expect(returned).to.be.an('object').with.property('head');
+      expect(returned).to.be.an('object').with.property('tail');
+      expect(returned).to.be.an('object').with.property('length');
+    })
+    it('should return undefined if list is empty', ()=>{
+      let list = new DoublyLinkedList();
+      let returned = list.reverse();
+
+      expect(returned).to.equal(undefined);
+    })
+  })
 })
