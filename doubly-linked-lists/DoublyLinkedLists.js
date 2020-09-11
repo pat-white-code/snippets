@@ -137,6 +137,27 @@ class DoublyLinkedList {
     this.length-- ;
     return removed;
   }
+  reverse(){
+    if(!this.head) return undefined;
+    // traverse the array
+    // save current.next to a variable
+    // reset current.next to equal current.previous
+    // set current.previous to equal current.next;
+    let current = this.head;
+    while(current) {
+      //         1 -> 2 -> 3 -> 4
+      // null <- C    N
+      let nextNode = current.next;
+      current.next = current.prev;
+      current.prev = nextNode;
+      current = nextNode;
+    }
+    let oldHead = this.head;
+    this.head = this.tail;
+    this.tail = oldHead;
+    return this;
+  }
+  swap(){}
 }
 
 module.exports = DoublyLinkedList;
