@@ -572,4 +572,67 @@ describe('Doubly Linked Lists', ()=> {
       expect(returned).to.equal(undefined);
     })
   })
+  describe('#swap', ()=>{
+    it('should swap the 2 nodes at given indices', ()=>{
+      let list = new DoublyLinkedList();
+
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.push(4);
+
+      list.swap(1,3);
+
+      let swap1 = list.get(1);
+      let swap2 = list.get(3);
+
+      expect(swap1.val).to.equal(4);
+      expect(swap2.val).to.equal(2);
+    })
+    it('should maintain list connections', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.swap(0,2);
+
+      let first = list.get(0);
+      let second = list.get(1);
+      let third = list.get(2);
+
+      expect(first.next).to.deep.equal(second);
+      expect(first.prev).to.equal(null);
+      expect(second.prev).to.deep.equal(first);
+      expect(second.next).to.deep.equal(third);
+      expect(third.prev).to.deep.equal(second);
+      expect(third.next).to.equal(null);
+    })
+    it('should return true if valid, false if not', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+
+      let returnTrue = list.swap(0,2);
+      let returnFalse = list.swap(0,6);
+      let returnNegative = list.swap(-1,2);
+
+      expect(returnTrue).to.equal(true)
+      expect(returnFalse).to.equal(false)
+      expect(returnNegative).to.equal(false)
+    })
+    it('should reassign head/tail if needed', ()=>{
+      let list = new DoublyLinkedList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.push(4);
+
+      list.swap(0, 2);
+      list.swap(1, 3);
+
+      expect(list.head.val).to.equal(3);
+      expect(list.tail.val).to.equal(2);
+    })
+  })
 })

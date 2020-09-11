@@ -157,7 +157,39 @@ class DoublyLinkedList {
     this.tail = oldHead;
     return this;
   }
-  swap(){}
+  swap(idx1, idx2){
+    if(idx1 < 0 || idx1 > this.length) return false;
+    if(idx2 < 0 || idx2 > this.length) return false;
+
+    let node1 = this.get(idx1);
+    // {val: 2, next: node3 prev: node0}
+    let temp = new Node(node1.val);
+    temp.next = node1.next;
+    temp.prev = node1.prev;
+
+    // {val: 2, next: node3 prev: node0}
+    let node2 = this.get(idx2);
+    // {val: 3, next: node4, prev: node2}
+
+    node1.next = node2.next;
+    // node1: {val: 2, next: node4 prev: node0}
+    node1.prev = node2.prev;
+    // node1: {val:2, next:node4 prev: node3}
+
+    if(node2.next) node2.next.prev = node1;
+    if(node2.prev) node2.prev.next = node1;
+
+    node2.next = temp.next;
+    node2.prev = temp.prev;
+    if(temp.next) temp.next.prev = node2;
+    if(temp.prev) temp.prev.next = node2;
+
+    if(idx1 === 0) this.head = node2;
+    if(idx2 === this.length - 1) this.tail = node1;
+
+    console.log(this);
+    return true;
+  }
 }
 
 module.exports = DoublyLinkedList;
