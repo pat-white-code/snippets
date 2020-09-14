@@ -29,4 +29,44 @@ describe('Stacks', ()=> {
       expect(stack.last.val).to.equal(1)
     })
   })
+  describe('#pop', ()=> {
+    it('should remove the first item of the stack', ()=>{
+      let stack = new Stack();
+      stack.push(1);
+      stack.push(2);
+      stack.push(3);
+      stack.push(4);
+      stack.pop();
+
+      expect(stack.first.val).to.equal(3)
+      expect(stack.last.val).to.equal(1)
+    })
+    it('should return the removed node with no connections', ()=>{
+      let stack = new Stack();
+      stack.push(1);
+      stack.push(2);
+      stack.push(3);
+      stack.push(4);
+      let returned = stack.pop();
+
+      expect(returned).to.be.an.object.with.property('val').to.equal(4);
+      expect(returned).to.be.an.object.with.property('next').to.equal(null);
+    })
+    it('should decrement the length of the list', ()=>{
+      let stack = new Stack();
+      stack.push(1);
+      stack.push(2);
+      stack.push(3);
+      stack.pop();
+
+      expect(stack.length).to.equal(2);
+    })
+    it('should return undefined on empty list', ()=>{
+      let stack = new Stack();
+
+      let returned = stack.pop();
+
+      expect(returned).to.equal(undefined);
+    })
+  })
 })
