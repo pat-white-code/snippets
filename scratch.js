@@ -25,3 +25,11 @@ filter = {rated: {$nin: ["PG-13", "PG"]}}
 
 filter = {viewerRating: {$type: "int"}}
 
+// find movies with either a rotten score greater than 95 or metacritic score greater than 88
+
+let filter = {$or: [
+  {metacritic: {$gt: 88}}, 
+  {"tomato.meter": {$gt: 95}}
+]}
+
+let proj = {_id: 0, "tomato.meter": 1, "metacritic": 1}
