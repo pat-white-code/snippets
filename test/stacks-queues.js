@@ -50,8 +50,8 @@ describe('Stacks', ()=> {
       stack.push(4);
       let returned = stack.pop();
 
-      expect(returned).to.be.an.object.with.property('val').to.equal(4);
-      expect(returned).to.be.an.object.with.property('next').to.equal(null);
+      expect(returned).to.be.an('object').with.property('val').to.equal(4);
+      expect(returned).to.be.an('object').with.property('next').to.equal(null);
     })
     it('should decrement the length of the list', ()=>{
       let stack = new Stack();

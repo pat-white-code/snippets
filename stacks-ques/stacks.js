@@ -24,7 +24,22 @@ class Stack {
     this.length ++
     return this.length
   }
-  pop() {}
+  pop() {
+    // remove the first item of the list
+    if(!this.first) return undefined;
+    let removed = this.first;
+    this.first = removed.next;
+    this.length--;
+    if(this.length === 1) {
+      this.first = this.last;
+    }
+    if(this.length === 0) {
+      this.first = null;
+      this.last = null;
+    }
+    removed.next = null;
+    return removed;
+  }
 }
 
 
