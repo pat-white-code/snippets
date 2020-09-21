@@ -83,4 +83,31 @@ describe('Queues', ()=> {
       expect(q).to.have.property('length').to.equal(0);
     })
   })
+  describe('#enqueue', ()=> {
+    it('should work on an empty stack', ()=>{
+      let q = new Queue;
+      q.enqueue(1)
+      expect(q.first.val).to.equal(1);
+      expect(q.last.val).to.equal(1);
+      expect(q.length).to.equal(1);
+    })
+    it('should add to the end of the list', ()=>{
+      let q = new Queue;
+      q.enqueue(1)
+      q.enqueue(2)
+      q.enqueue(3)
+
+      expect(q.last.val).to.equal(3);
+      expect(q.first.val).to.equal(1);
+      expect(q.length).to.equal(3);
+    })
+    it('should return the length of the list', ()=>{
+      let q = new Queue;
+      q.enqueue(1)
+      q.enqueue(2)
+      let returned = q.enqueue(3)
+
+      expect(returned).to.equal(3);
+    })
+  })
 })

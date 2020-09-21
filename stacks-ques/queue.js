@@ -20,6 +20,11 @@ class Queue {
     this.last.next = newNode;
     this.last = newNode
   }
+  dequeue() {
+    // remove an item from the front of the list
+    // {first: 1, last: 3, length: 3}
+    
+  }
 }
 
 module.exports = Queue;
