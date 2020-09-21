@@ -4,6 +4,7 @@ var chai = require('chai')
 
 const assert = require('chai').assert;
 const Stack = require('../stacks-ques/stacks');
+const Queue = require('../stacks-ques/queue');
 // const should = require('chai').should()
 // const Node = require('../doubly-linked-lists/Node');
 // const expect = require('chai').expect;
@@ -67,6 +68,19 @@ describe('Stacks', ()=> {
       let returned = stack.pop();
 
       expect(returned).to.equal(undefined);
+    })
+  })
+})
+
+describe('Queues', ()=> {
+  describe('#queue', ()=>{
+    it('should create a new queue structure', ()=>{
+      let q = new Queue()
+
+      expect(q).to.be.an('object');
+      expect(q).to.have.property('first').to.equal(null);
+      expect(q).to.have.property('last').to.equal(null);
+      expect(q).to.have.property('length').to.equal(0);
     })
   })
 })

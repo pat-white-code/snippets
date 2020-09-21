@@ -21,3 +21,5 @@ class Queue {
     this.last = newNode
   }
 }
+
+module.exports = Queue;
