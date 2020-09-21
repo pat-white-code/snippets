@@ -16,14 +16,18 @@ class Queue {
     // add to the end of the list
     if(!this.first) {
       this.first = newNode;
+      this.last = newNode;
+    } else {
+      this.last.next = newNode;
+      this.last = newNode
     }
-    this.last.next = newNode;
-    this.last = newNode
+    this.length++;
+    return this.length;
   }
   dequeue() {
     // remove an item from the front of the list
     // {first: 1, last: 3, length: 3}
-    
+
   }
 }
 
