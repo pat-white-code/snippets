@@ -113,7 +113,7 @@ describe('Queues', ()=> {
   describe('#dequeque', ()=> {
     it('should return undefined on an empty stack', ()=>{
       let q = new Queue;
-      let returned = q.dequeuqe();
+      let returned = q.dequeue();
       expect(returned).to.equal(undefined);
     })
     it('should work on single node list', ()=>{

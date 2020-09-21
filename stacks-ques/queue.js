@@ -27,7 +27,17 @@ class Queue {
   dequeue() {
     // remove an item from the front of the list
     // {first: 1, last: 3, length: 3}
-
+    if(!this.first) return undefined;
+    let removed = this.first;
+    if(this.length === 1) {
+      this.first = null;
+      this.last = null;
+    } else {
+      this.first = removed.next;
+    }
+    this.length--;
+    removed.next = null;
+    return removed;
   }
 }
 
