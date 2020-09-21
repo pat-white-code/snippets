@@ -110,4 +110,41 @@ describe('Queues', ()=> {
       expect(returned).to.equal(3);
     })
   })
+  describe('#dequeque', ()=> {
+    it('should return undefined on an empty stack', ()=>{
+      let q = new Queue;
+      let returned = q.dequeuqe();
+      expect(returned).to.equal(undefined);
+    })
+    it('should work on single node list', ()=>{
+      let q = new Queue;
+      q.enqueue(1)
+      q.dequeue();
+
+      expect(q.last).to.equal(null);
+      expect(q.first).to.equal(null);
+      expect(q.length).to.equal(0);
+    })
+    it('should return the removed node with no connections', ()=>{
+      let q = new Queue;
+      q.enqueue(1)
+      q.enqueue(2)
+      q.enqueue(3)
+      let returned = q.dequeue()
+
+      expect(returned).to.be.an('object').with.property('val').to.equal(1);
+      expect(returned.next).to.equal(null);
+    })
+    it('should remove from the beginning', ()=>{
+      let q = new Queue;
+      q.enqueue(1)
+      q.enqueue(2)
+      q.enqueue(3)
+      let returned = q.dequeue()
+
+      expect(returned.val).to.equal(1);
+      expect(q.first.val).to.equal(2);
+      expect(q.last.val).to.equal(3);
+    })
+  })
 })
