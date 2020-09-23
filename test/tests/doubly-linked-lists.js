@@ -3,9 +3,9 @@ var chai = require('chai')
   , should = chai.should();
 
 const assert = require('chai').assert
-const DoublyLinkedList = require('../doubly-linked-lists/DoublyLinkedLists');
+const DoublyLinkedList = require('../../doubly-linked-lists/DoublyLinkedLists');
 // const should = require('chai').should()
-const Node = require('../doubly-linked-lists/Node');
+const Node = require('../../doubly-linked-lists/Node');
 // const expect = require('chai').expect;
 
 

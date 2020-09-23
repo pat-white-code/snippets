@@ -187,7 +187,6 @@ class DoublyLinkedList {
     if(idx1 === 0) this.head = node2;
     if(idx2 === this.length - 1) this.tail = node1;
 
-    console.log(this);
     return true;
   }
 }
