@@ -40,7 +40,7 @@ class BST {
   //   }
   // }
 
-  insert (val, current = this.root) {
+  insert(val, current = this.root) {
     // base case:
     if (!this.root) {
       this.root = new Node(val);
@@ -58,6 +58,14 @@ class BST {
     (val > current.val) ? 
       this.insert(val, current.right) : 
       this.insert(val, current.left);
+  }
+
+  find(target, current = this.root) {
+    if(current.val === target) return true;
+    if(target > current.val && !current.right) return false;
+    if(target < current.val && !current.left) return false;
+    if(target >= current.right.val) return this.find(target, current.right);
+    if(target <= current.left.val) return this.find(target, current.left);
   }
 }
 
