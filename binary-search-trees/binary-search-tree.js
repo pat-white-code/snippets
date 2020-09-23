@@ -17,21 +17,21 @@ class BST {
       this.root = newNode;
     } else {
       let current = this.root;
-      while (current.left || current.right) {
+      while (current) {
         if (newNode.val > current.val){
-          // if new node is greater than current.val, look to the right. if right node exists, repeat on right. If not, insert as current.right
+
           if(current.right) {
             current = current.right;
           } else {
             current.right = newNode;
-            current = newNode;
+            break;
           }
         } else {
           if(current.left) {
             current = current.left;
           } else {
             current.left = newNode;
-            current = newNode;
+            break;
           }
         }
       }

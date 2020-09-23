@@ -26,22 +26,18 @@ describe('Binary Search Tree', ()=>{
       let bst = new BST();
       bst.insert(5);
       bst.insert(3);
+      bst.insert(8);
       bst.insert(4);
       bst.insert(1);
-      bst.insert(2);
-      bst.insert(8);
-      bst.insert(7);
+      bst.insert(0);
+      bst.insert(10);
 
-      // 
-
-      expect(bst.left.val).to.equal(3);
-      expect(bst.left.right.val).to.equal(4);
-      expect(bst.left.left.val).to.equal(1);
-      expect(bst.left.left.right.val).to.equal(2);
-      expect(bst.right.val).to.equal(8);
-      expect(bst.right.left.val).to.equal(7);
-      expect(bst).to.have.property('root');
-      expect(bst.root.val).to.equal(5);
+      expect(bst.root.left.val).to.equal(3);
+      expect(bst.root.right.val).to.equal(8);
+      expect(bst.root.left.right.val).to.equal(4);
+      expect(bst.root.left.left.val).to.equal(1);
+      expect(bst.root.left.left.left.val).to.equal(0);
+      expect(bst.root.right.right.val).to.equal(10);
     })
   })
 })

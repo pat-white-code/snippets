@@ -3,8 +3,8 @@ var chai = require('chai')
   , should = chai.should();
 
 const assert = require('chai').assert;
-const Stack = require('../stacks-ques/stacks');
-const Queue = require('../stacks-ques/queue');
+const Stack = require('../../stacks-ques/stacks');
+const Queue = require('../../stacks-ques/queue');
 // const should = require('chai').should()
 // const Node = require('../doubly-linked-lists/Node');
 // const expect = require('chai').expect;
