@@ -81,6 +81,21 @@ class BST {
     }
     return false;
   }
+  bfs() {
+    let q = []
+    let visited = [];
+    q.push(this.root);
+    while(q.length) {
+      let removed = q.shift();
+      if(removed.left) {
+        q.push(removed.left)
+      }
+      if(removed.right) {
+        q.push(removed.right)
+      }
+    }
+    return visited;
+  }
 }
 
 module.exports = BST;
