@@ -67,4 +67,22 @@ describe('Binary Search Tree', ()=>{
       // expect(bst.find('Hello!')).to.equal(false)
     })
   })
+  describe('#bfs', ()=>{
+    it('should return the list of visited nodes', ()=>{
+      let bst = new BST();
+      bst.insert(5);
+      bst.insert(3);
+      bst.insert(4);
+      bst.insert(1);
+      bst.insert(2);
+      bst.insert(10);
+      //    5
+      //  3   10
+      //1   4
+      //  2
+      let returned = bst.bfs();
+      let expected = [5, 3, 10, 1, 4, 2]
+      expect(returned).to.deep.equal(expected);
+    })
+  })
 })

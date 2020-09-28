@@ -87,6 +87,7 @@ class BST {
     q.push(this.root);
     while(q.length) {
       let removed = q.shift();
+      visited.push(removed.val);
       if(removed.left) {
         q.push(removed.left)
       }
