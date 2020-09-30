@@ -57,6 +57,8 @@ body {
   width: 18px;
   height: 18px;
   background: #FF2995;
+  border-bottom: 2px solid #FF98cc;
+  border-radius: 100%;
 }
 
 .eye::before{
@@ -77,13 +79,18 @@ body {
   width: 75px;
   height: 25px;
   background: #FF2995;
-  border-radius: 10px 10px 40px 40px;
+  border-radius: 10px;
+  border-bottom: 2px solid #ff98cc;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
 }
 
 .stick {
-  border: 1px black solid;
+  /* border: 1px black solid; */
   width: 60px;
   height: 72px;
   background: #ECAA7D;
   border-top: 12px solid #db9e74;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
 }
