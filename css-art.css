@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border: 1px red solid;
+  /* border: 1px red solid; */
   border-radius: 126px 126px 24px 24px;
   border-top: 8px #ff98cc solid;
 }
@@ -41,7 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border: 1px black solid;
+  /* border: 1px black solid; */
   align-items: center;
 }
 
@@ -49,7 +49,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  border: 1px black solid;
+  /* border: 1px black solid; */
 }
 
 .eye {
