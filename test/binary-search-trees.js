@@ -85,4 +85,26 @@ describe('Binary Search Tree', ()=>{
       expect(returned).to.deep.equal(expected);
     })
   })
+  describe('#depth-first-search', ()=>{
+    it('Should traverse depth first', ()=> {
+      let bst = new BST()
+      bst.insert(5)
+      bst.insert(3)
+      bst.insert(8)
+      bst.insert(2)
+      bst.insert(7)
+      bst.insert(10)
+      bst.insert(9)
+      bst.insert(1)
+      bst.insert(4)
+
+      let actual = bst.dfsPre();
+      let expected = [5, 3, 2, 1, 4, 8, 7, 10, 9]
+      //      5
+      //   3    8
+      //  2 4 7  10
+      //1       9
+      expect(actual).to.deep.equal(expected)
+    })
+  })
 })
