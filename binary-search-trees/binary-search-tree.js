@@ -119,7 +119,21 @@ class BST {
     traverse(this.root);
     return output;
   }
-  
+  dfsInOrder() {
+    let output = [];
+    const traverse = (node) => {
+      if(node.left){
+        traverse(node.left)
+      };
+      output.push(node.val);
+      if(node.right) {
+        traverse(node.right)
+      }
+    }
+    traverse(this.root);
+    return output;
+  }
+
   dfsPostRec(output = [], node = this.root) {
     if(!node.left && !node.right) return [...output, node.val];
     if(node.left) {
@@ -159,6 +173,6 @@ bst.insert(9)
 bst.insert(1)
 bst.insert(4)
 
-console.log(bst.dfsPreRec());
+console.log(bst.dfsInOrder());
 
 module.exports = BST;
