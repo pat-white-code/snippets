@@ -105,6 +105,21 @@ class BST {
     traverse(this.root);
     return output;
   }
+  dfsPost() {
+    let output = [];
+    const traverse = (node) => {
+      if(node.left){
+        traverse(node.left)
+      };
+      if(node.right) {
+        traverse(node.right)
+      }
+      output.push(node.val);
+    }
+    traverse(this.root);
+    return output;
+  }
+  
   dfsPostRec(output = [], node = this.root) {
     if(!node.left && !node.right) return [...output, node.val];
     if(node.left) {
@@ -114,6 +129,18 @@ class BST {
       output = this.dfsPreRec(output, node.right)
     };
     return [...output, node.val];
+  }
+
+  dfsPreRec(output = [], node = this.root) {
+    if(!node.left && !node.right) return [...output, node.val];
+    output = [...output, node.val];
+    if(node.left) {
+      output = this.dfsPreRec(output, node.left)
+    };
+    if(node.right) {
+      output = this.dfsPreRec(output, node.right)
+    };
+    return output;
   }
 }
 //      5
