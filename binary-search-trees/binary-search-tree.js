@@ -98,20 +98,19 @@ class BST {
     return visited;
   }
   dfsPre() {
-    // for any node, look at it's left side, then it's right side
     let output = [];
-    const recursively = (node) => {
+    const traverse = (node) => {
       console.log(node);
       output.push(node.val);
       if(node.left){
-        recursively(node.left)
+        traverse(node.left)
       };
       if(node.right) {
-        recursively(node.right)
+        traverse(node.right)
       }
     }
-    recursively(this.head);
-    return this;
+    traverse(this.root);
+    return output;
   }
 }
 //    5
