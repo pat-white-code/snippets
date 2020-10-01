@@ -60,13 +60,6 @@ class BST {
       this.insert(val, current.left);
   }
 
-  // find(target, current = this.root) {
-  //   if(current.val === target) return true;
-  //   if(target > current.val && !current.right) return false;
-  //   if(target < current.val && !current.left) return false;
-  //   if(target >= current.right.val) return this.find(target, current.right);
-  //   if(target <= current.left.val) return this.find(target, current.left);
-  // }
   find(target) {
     // if(this.root.val === target) return true;
     let current = this.root;
@@ -112,10 +105,22 @@ class BST {
     traverse(this.root);
     return output;
   }
+  dfsPostRec(output = [], node = this.root) {
+    if(!node.left && !node.right) return [...output, node.val];
+    if(node.left) {
+      output = this.dfsPreRec(output, node.left)
+    };
+    if(node.right) {
+      output = this.dfsPreRec(output, node.right)
+    };
+    return [...output, node.val];
+  }
 }
-//    5
-//  3    6
-// 2
+//      5
+//   3    8
+//  2 4 7  10
+//1       9
+
 let bst = new BST()
 bst.insert(5)
 bst.insert(3)
@@ -127,6 +132,6 @@ bst.insert(9)
 bst.insert(1)
 bst.insert(4)
 
-console.log(bst.dfsPre());
+console.log(bst.dfsPreRec());
 
 module.exports = BST;
