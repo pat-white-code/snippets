@@ -62,17 +62,15 @@ body {
 }
 
 .eye::before{
-  display: block;
   content: '';
+  display: block;
+  left: 29%;
+  top: 54%;
+  height: 4px;
+  width: 90px;
+  background: white;
   position: absolute;
-  background: #FFF;
-  left: 50%;
-  top: 20%;
-  transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
   border-radius: 100%;
-
 }
 
 .mouth {

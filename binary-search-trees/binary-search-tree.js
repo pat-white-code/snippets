@@ -97,6 +97,32 @@ class BST {
     }
     return visited;
   }
+  dfsPre() {
+    // for any node, look at it's left side, then it's right side
+    let output = [];
+    const recursively = (node) => {
+      console.log(node);
+      output.push(node.val);
+      if(node.left){
+        recursively(node.left)
+      };
+      if(node.right) {
+        recursively(node.right)
+      }
+    }
+    recursively(this.head);
+    return this;
+  }
 }
+//    5
+//  3    6
+// 2
+let bst = new BST()
+bst.insert(5)
+bst.insert(3)
+bst.insert(6)
+bst.insert(2)
+
+console.log(bst.dfsPre());
 
 module.exports = BST;
