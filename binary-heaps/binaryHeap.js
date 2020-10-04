@@ -1,41 +1,41 @@
-const binaryHeap = [];
-
-binaryHeap.push(55)
-binaryHeap.push(40)
-binaryHeap.push(33)
-binaryHeap.push(21)
-
-//      55
-//   40    33
-// 21
-
-const insert = (val) => {
-  binaryHeap.push(val);
-  let index = binaryHeap.length - 1;
-  let parentIndex = Math.floor((index - 1) / 2)
-  while (val > binaryHeap[parentIndex]) {
-    // swap
-    let temp = binaryHeap[parentIndex];
-    binaryHeap[parentIndex] = val;
-    binaryHeap[index] = temp;
-
-    index = parentIndex;
-    parentIndex = Math.floor((index - 1) / 2)
+class MaxBinaryHeap {
+  constructor() {
+    this.values = [];
   }
-  return binaryHeap;
+  bubbleUp() {
+    let idx = this.values.length - 1;
+    let element = this.values[idx];
+    let parentIdx = Math.floor((idx - 1) / 2);
+    let parent = this.values[parentIdx]
+    while(element > parent) {
+      this.values[parentIdx] = element;
+      this.values[idx] = parent;
+      idx = parentIdx;
+      parentIdx = Math.floor((idx - 1) / 2);
+      parent = this.values[parentIdx];
+    }
+  }
+
+  insert(val) {
+    this.values.push(val);
+    this.bubbleUp();
+  return this;
+  }
+
+  // bubbleUp() {
+  //   let idx = this.values.length - 1;
+  //   const element = this.values[idx];
+  //   while(true) {
+  //     let parentIdx = Math.floor((idx - 1) / 2);
+  //     let parent = this.values[parentIdx];
+  //     if(element > parent) {
+  //       this.values[parentIdx] = element;
+  //       this.values[idx] = parent;
+  //     }
+  //   }
+  // }
 }
 
-insert(100);
 
-//     100
-//   55    33
-// 21  40  57
 
-//     100
-//    55    57
-//   21 40 33  21
-insert(57)
-insert(21)
-insert(200)
-
-console.log(binaryHeap);
+module.exports = MaxBinaryHeap;

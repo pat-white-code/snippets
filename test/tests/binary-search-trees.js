@@ -2,7 +2,7 @@ const chai = require('chai'),
   expect = chai.expect, 
   should = chai.should();
 
-const BST = require('../binary-search-trees/binary-search-tree');
+const BST = require('../../binary-search-trees/binary-search-tree');
 
 describe('Binary Search Tree', ()=>{
   describe('#constructor', ()=>{
