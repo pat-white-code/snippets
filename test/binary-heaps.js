@@ -97,7 +97,7 @@ describe('# MaxBinaryHeap', ()=> {
       // 70 60  50  40
       // [100, 90, 80, 70, 60, 50, 40]
       let returned = mbh.extract();
-      expect(returned).to.be(100)
+      expect(returned).to.equal(100);
     })
     it('should reorder the heap accordingly', ()=>{
       let mbh = new MaxBinaryHeap();
@@ -124,6 +124,11 @@ describe('# MaxBinaryHeap', ()=> {
 
       expect(mbh.values).to.deep.equal(expected);
     })
-    it('should return null if heap is empty', ()=>{})
+    it('should return null if heap is empty', ()=>{
+      let mbh = new MaxBinaryHeap();
+
+      let returned = mbh.extract();
+      expect(returned).to.equal(null);
+    })
   })
 })
