@@ -2,7 +2,7 @@ const chai = require('chai'),
   expect = chai.expect, 
   should = chai.should();
 
-const MaxBinaryHeap = require('../binary-heaps/binaryHeap');
+const MaxBinaryHeap = require('../../binary-heaps/binaryHeap');
 
 describe('# MaxBinaryHeap', ()=> {
   describe('#Class Constructor', ()=> {
