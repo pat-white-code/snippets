@@ -10,22 +10,32 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px red solid;  
-  /* height: 200px; */
   width: 400px;
 }
 
 .hair {
   height:50px;
-  border: 1px green solid;
   display: flex;
   width: 100%;
+  justify-content: center;
+  width: 30%;
+  justify-content: space-evenly;
+}
+
+.left-hair {
+  border-left: 9px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 30px solid darkgrey;
+}
+.right-hair {
+  border-left: 14px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 40px solid darkgrey;
 }
 
 .ears {
   display: flex;
   width:100%; 
-  border: 1px red solid;
   justify-content: space-between;
 }
 
@@ -46,7 +56,7 @@ body {
   border-radius: 100%;
 }
 
-.face {
+.head {
   height: 300px;
   display: flex;
   width: 300px;
@@ -56,12 +66,19 @@ body {
   border-radius: 100%;
   top: -210px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex-direction: column;
 }
 
+.face{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .eyes {
-  border: 1px red solid;
   display: flex;
   justify-content: center;
 }
@@ -78,8 +95,8 @@ body {
 }
 
 .inner-eye {
-  height: 50px;
-  width: 50px;
+  height: 30px;
+  width: 30px;
   background: black;
   border-radius: 100%;
 }
@@ -88,4 +105,13 @@ body {
   /* background: brown; */
   display: flex;
   flex-direction: column;
+  background: burlywood;
+  height: 110px;
+  width: 70px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  position: relative;
+  top: -30px;
 }
