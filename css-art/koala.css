@@ -57,6 +57,7 @@ body {
   top: -210px;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .eyes {
@@ -81,4 +82,10 @@ body {
   width: 50px;
   background: black;
   border-radius: 100%;
+}
+
+.nose {
+  /* background: brown; */
+  display: flex;
+  flex-direction: column;
 }
