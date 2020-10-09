@@ -1,17 +1,4 @@
 function solve(arr){
-  // convert the times into numerical values
-  //   00:00 = 0
-  //   00:01 = 1
-  //   00:10 = 10
-  //   01:00 = 60
-  //   [600, 60, 10, 1]
-  //   multiply the integer value by the arr[i] and add to the total time value
-  //  sort the times from smallest to biggest
-  //   calculate the difference between each pair of times
-  //   keep track of the largest difference
-  //   add subtract 1 minute from difference
-  //   to convert back to time string, minutes = timevalue % 60
-  //   hours = Math.floor(timevalue / 60)
   if(arr.length === 1) return '23:59';
   const multiplier = [600, 60, 0, 10, 1]
   let max = 0;
@@ -32,21 +19,23 @@ function solve(arr){
     let thisVal = timeValues[i];
     let nextVal = timeValues[i + 1];
     if(i + 1 < timeValues.length) {
-      difference = nextVal - thisVal;
+      difference = nextVal - thisVal - 1;
       max = Math.max(max, difference)
     }
   }
-  let minutes = (max % 60) - 1;
+  let minutes = max % 60;
   let hours = Math.floor(max / 60);
-  console.log(max);
-  console.log(hours)
-  console.log(minutes);
   const addZeroHr = (hours) => hours < 10 ? '0' + hours.toString() : hours.toString(); 
   const addZeroMin = (minutes) => minutes < 10 ? '0' + `${minutes}` : `${minutes}`;
   hours = addZeroHr(hours);
   minutes = addZeroMin(minutes);
   let output = `${hours}:${minutes}`;
   return output;
+
+  // convert the times into numerical values
+  //   multiply the integer value by the arr[i] and add to the total time value
+  //  sort the times from smallest to biggest
+  //   calculate the difference between each pair of times
   // ["23:00","04:22","18:05","06:24"]
   // [1380, 82, 1085, 384]
   // [82, 384, 1085, 1380, 1522]
