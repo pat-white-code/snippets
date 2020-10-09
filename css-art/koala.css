@@ -23,17 +23,36 @@ body {
 }
 
 .ears {
-  height: 200px;
   display: flex;
   width:100%; 
   border: 1px red solid;
+  justify-content: space-between;
+}
+
+.ear {
+  height: 200px;
+  width: 200px;
+  background: darkgrey;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-ear {
+  height: 75%;
+  width: 75%;
+  background: lightgrey;
+  border-radius: 100%;
 }
 
 .face {
-  height: 200px;
+  height: 300px;
   display: flex;
-  width: 100%;
-  background: lightgrey;
+  width: 300px;
+  background: darkgrey;
   z-index: 1;
   position: relative;
+  border-radius: 100%;
+  top: -210px;
 }
