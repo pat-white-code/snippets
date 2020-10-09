@@ -12,7 +12,7 @@ body {
   align-items: center;
   border: 1px red solid;  
   /* height: 200px; */
-  width: 200px;
+  width: 400px;
 }
 
 .hair {
@@ -20,4 +20,20 @@ body {
   border: 1px green solid;
   display: flex;
   width: 100%;
+}
+
+.ears {
+  height: 200px;
+  display: flex;
+  width:100%; 
+  border: 1px red solid;
+}
+
+.face {
+  height: 200px;
+  display: flex;
+  width: 100%;
+  background: lightgrey;
+  z-index: 1;
+  position: relative;
 }
