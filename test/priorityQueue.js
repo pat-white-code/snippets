@@ -78,36 +78,10 @@ describe('# PriorityQueue', ()=> {
       expect(second).to.deep.equal({val: 'fifty', priority: 50});
       expect(third).to.deep.equal({val: 'sixty', priority: 60});
     })
-    
-    it('should reorder the heap accordingly', ()=>{
-      let mbh = new MaxBinaryHeap();
-
-      mbh.insert(100)
-      mbh.insert(90)
-      mbh.insert(80)
-      mbh.insert(70)
-      mbh.insert(60)
-      mbh.insert(50)
-      mbh.insert(40)
-
-        //    100
-      //   90    80
-      // 70 60  50  40
-      // [100, 90, 80, 70, 60, 50, 40]
-
-      //      90
-      //   70    80
-      // 40 60  50 
-
-      mbh.extract();
-      let expected = [90, 70, 80, 40, 60, 50]
-
-      expect(mbh.values).to.deep.equal(expected);
-    })
     it('should return null if heap is empty', ()=>{
-      let mbh = new MaxBinaryHeap();
+      let pq = new PriorityQueue();
 
-      let returned = mbh.extract();
+      let returned = pq.dequeue();
       expect(returned).to.equal(null);
     })
   })

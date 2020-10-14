@@ -47,15 +47,15 @@ class PriorityQueue {
 
       if(leftChildIdx < length) {
         leftChild = this.values[leftChildIdx];
-        if(leftChild.priority > element.priority) {
+        if(leftChild.priority < element.priority) {
           swap = leftChildIdx
         }
       }
       if(rightChildIdx < length) {
         rightChild = this.values[rightChildIdx];
         if( 
-          (swap === null && rightChild.priority > element.priority) || 
-          (swap !== null && rightChild.priority > leftChild.priority)) {
+          (swap === null && rightChild.priority < element.priority) || 
+          (swap !== null && rightChild.priority < leftChild.priority)) {
             swap = rightChildIdx
           }
       }
