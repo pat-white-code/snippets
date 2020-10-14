@@ -28,21 +28,29 @@ describe('# PriorityQueue', ()=> {
     it('should put items in the correct spot', ()=>{
       let pq = new PriorityQueue();
 
-      mbh.insert(55);
-      mbh.insert(24);
-      mbh.insert(31);
-      mbh.insert(12);
-      mbh.insert(7);
-      mbh.insert(24);
-      mbh.insert(100);
+      pq.enqueue('headache', 55);
+      pq.enqueue('tummy-ache', 24);
+      pq.enqueue('medium fever', 31);
+      pq.enqueue('hangover', 12);
+      pq.enqueue('case of the mondays', 7);
+      pq.enqueue('migrane', 20);
+      pq.enqueue('Gun shot wound', 100);
 
-       //     55
-      //   24     31
-      // 12  7  24  100
+       //     100
+      //   24     55
+      // 12  7  24  31
 
-      let expected  = [100, 24, 55, 12, 7, 24, 31]
+      let expected  = [
+        {val: 'Gun shot wound', priority: 100},
+        {val: 'tummy-ache', priority: 24},
+        {val: 'headache', priority: 55},
+        {val: 'hangover', priority: 12},
+        {val: 'case of the mondays', priority: 7},
+        {val: 'migrane', priority: 20},
+        {val: 'medium fever', priority: 31}
+      ]
 
-      expect(mbh.values).to.deep.equal(expected);
+      expect(pq.values).to.deep.equal(expected);
     })
     it('should put items in the correct middle spot', ()=>{
       let mbh = new MaxBinaryHeap();
