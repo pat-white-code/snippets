@@ -36,18 +36,18 @@ describe('# PriorityQueue', ()=> {
       pq.enqueue('migrane', 20);
       pq.enqueue('Gun shot wound', 100);
 
-       //     100
-      //   24     55
-      // 12  7  24  31
+       //     7
+      //   12     20
+      // 55  24  31  100
 
       let expected  = [
-        {val: 'Gun shot wound', priority: 100},
-        {val: 'tummy-ache', priority: 24},
-        {val: 'headache', priority: 55},
-        {val: 'hangover', priority: 12},
         {val: 'case of the mondays', priority: 7},
+        {val: 'hangover', priority: 12},
         {val: 'migrane', priority: 20},
-        {val: 'medium fever', priority: 31}
+        {val: 'headache', priority: 55},
+        {val: 'tummy-ache', priority: 24},
+        {val: 'medium fever', priority: 31},
+        {val: 'Gun shot wound', priority: 100}
       ]
 
       expect(pq.values).to.deep.equal(expected);
