@@ -4,7 +4,8 @@
   "description": "",
   "main": "pivotHelper.js",
   "dependencies": {
-    "chai": "^4.2.0"
+    "chai": "^4.2.0",
+    "three": "^0.121.1"
   },
   "devDependencies": {
     "mocha": "^8.1.3"
