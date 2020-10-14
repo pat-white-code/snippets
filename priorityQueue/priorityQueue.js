@@ -1,11 +1,6 @@
-class Node {
-  constructor(val, priority) {
-    this.val = val;
-    this.priority = priority;
-  }
-}
+const Node = require('./queueNode');
 
-class MaxBinaryHeap {
+class PriorityQueue {
   constructor() {
     this.values = [];
   }
@@ -13,18 +8,18 @@ class MaxBinaryHeap {
   bubbleUp() {
     let idx = this.values.length - 1;
     let element = this.values[idx];
-    let parentIdx = Math.floor((idx - 1) / 2);
-    let parent = this.values[parentIdx]
-    while(element.priority > parent.priority) {
+    while(idx > 0) {
+      let parentIdx = Math.floor((idx - 1) / 2);
+      let parent = this.values[parentIdx];
+      if(element.priority > parent.priority) break;
       this.values[parentIdx] = element;
       this.values[idx] = parent;
       idx = parentIdx;
-      parentIdx = Math.floor((idx - 1) / 2);
-      parent = this.values[parentIdx];
     }
   }
 
-  enqueue(node) {
+  enqueue(val, priority) {
+    let node = new Node(val, priority);
     this.values.push(node);
     this.bubbleUp();
     return this;
@@ -71,3 +66,5 @@ class MaxBinaryHeap {
     }
   }
 }
+
+module.exports = PriorityQueue;

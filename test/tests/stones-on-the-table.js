@@ -1,6 +1,6 @@
 const {assert} = require("chai");
 // const solve = require('../codewars/stonesOnTheTable');
-const solve = require('../codewars/simpleTimeDifference');
+const solve = require('../../codewars/simpleTimeDifference');
 
 // describe("Stones on the table",()=>{
 //   it("example tests",()=>{
