@@ -52,64 +52,33 @@ describe('# PriorityQueue', ()=> {
 
       expect(pq.values).to.deep.equal(expected);
     })
-    it('should put items in the correct middle spot', ()=>{
-      let mbh = new MaxBinaryHeap();
-
-      mbh.insert(55);
-      mbh.insert(24);
-      mbh.insert(31);
-      mbh.insert(12);
-      mbh.insert(7);
-      mbh.insert(24);
-      mbh.insert(44);
-
-       //     55
-      //   24     31
-      // 12  7  24  44
-
-      let expected  = [55, 24, 44, 12, 7, 24, 31]
-
-      expect(mbh.values).to.deep.equal(expected);
-    })
-    it('should put items in the correct end spot', ()=>{
-      let mbh = new MaxBinaryHeap();
-
-      mbh.insert(55);
-      mbh.insert(24);
-      mbh.insert(31);
-      mbh.insert(12);
-      mbh.insert(7);
-      mbh.insert(24);
-      mbh.insert(12);
-
-       //     55
-      //   24     31
-      // 12  7  24  12
-
-      let expected  = [55, 24, 31, 12, 7, 24, 12]
-
-      expect(mbh.values).to.deep.equal(expected);
-    })
   })
-  describe('#extract', ()=> {
+  describe('#dequeue', ()=> {
     it('should return the head of the heap', ()=>{
-      let mbh = new MaxBinaryHeap();
+      let pq = new PriorityQueue();
 
-      mbh.insert(100)
-      mbh.insert(90)
-      mbh.insert(80)
-      mbh.insert(70)
-      mbh.insert(60)
-      mbh.insert(50)
-      mbh.insert(40)
+      pq.enqueue('one hundred', 100)
+      pq.enqueue('ninety', 90)
+      pq.enqueue('eighty', 80)
+      pq.enqueue('seventy', 70)
+      pq.enqueue('sixty', 60)
+      pq.enqueue('fifty', 50)
+      pq.enqueue('forty', 40)
 
-        //    100
-      //   90    80
-      // 70 60  50  40
-      // [100, 90, 80, 70, 60, 50, 40]
-      let returned = mbh.extract();
-      expect(returned).to.equal(100);
+        //    40
+      //   70    50
+      // 100 80  90  60
+      // [40, 70, 50, 100, 80, 90, 60]
+
+      let first = pq.dequeue();
+      let second = pq.dequeue();
+      let third = pq.dequeue();
+
+      expect(first).to.deep.equal({val: 'forty', priority: 40});
+      expect(second).to.deep.equal({val: 'fifty', priority: 50});
+      expect(third).to.deep.equal({val: 'sixty', priority: 60});
     })
+    
     it('should reorder the heap accordingly', ()=>{
       let mbh = new MaxBinaryHeap();
 
