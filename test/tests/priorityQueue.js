@@ -2,8 +2,8 @@ const chai = require('chai'),
   expect = chai.expect, 
   should = chai.should();
 
-const PriorityQueue = require('../priorityQueue/priorityQueue');
-const Node = require('../priorityQueue/queueNode');
+const PriorityQueue = require('../../priorityQueue/priorityQueue');
+const Node = require('../../priorityQueue/queueNode');
 
 describe('# PriorityQueue', ()=> {
   describe('#Class Constructor', ()=> {
