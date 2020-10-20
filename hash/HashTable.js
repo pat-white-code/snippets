@@ -12,4 +12,17 @@ class HashTable {
     }
     return total;
   }
+  _set(key, val) {
+    let hash = this.hash(key);
+    // 4
+    //          *
+    // [ , , , , ]
+    if(!this.keyMap[hash]) {
+      // if there is nothing at keymap[hash],
+      // we want to insert the keyvalue pair in a nested array
+      this.keyMap[hash] = [[key, val]];
+    } else {
+      this.keyMap.push([key, val])
+    }
+  }
 }
