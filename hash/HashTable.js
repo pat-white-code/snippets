@@ -31,7 +31,7 @@ class HashTable {
     for(let i = 0 ; i < data ; i++) {
       let currentKey = data[i][0];
       if(currentKey == key) {
-        return data[i][1]
+        return data[i]
       }
     }
     return undefined;
