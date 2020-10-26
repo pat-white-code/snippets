@@ -26,7 +26,7 @@ class HashTable {
     }
   }
   _get(key) {
-    let hash = this.hash(key);
+    let hash = this._hash(key);
     let data = this.keyMap[hash];
     for(let i = 0 ; i < data ; i++) {
       let currentKey = data[i][0];
@@ -40,9 +40,11 @@ class HashTable {
     let output = [];
     for (let i = 0 ; i < this.keyMap.length ; i++) {
       let slot = keyMap[i];
-      for( let j = 0 ; j < slot.length ; j++) {
-        let keyValue = slot[j];
-        output.push(keyValue[0]);
+      if(slot) {
+        for( let j = 0 ; j < slot.length ; j++) {
+          let keyValue = slot[j];
+          output.push(keyValue[0]);
+        }
       }
     }
     return output;
