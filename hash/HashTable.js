@@ -7,7 +7,7 @@ class HashTable {
     let weird_prime = 37;
     for(let i = 0 ; i < Math.min(key.length, 100) ; i++) {
       let char = key[i];
-      let val = char.charCodeAt(0) - 96;
+      let val = char.charCodeAt(0);
       total = (total * weird_prime + val) % this.keyMap.length
     }
     return total;
@@ -49,4 +49,30 @@ class HashTable {
     }
     return output;
   }
+
+  values() {
+    let output = [];
+    for (let i = 0 ; i < this.keyMap.length ; i++) {
+      let slot = this.keyMap[i];
+      if(slot) {
+        for( let j = 0 ; j < slot.length ; j++) {
+          let keyValue = slot[j];
+          if(!output.includes(keyValue[1])) {
+            output.push(keyValue[1]);
+          }
+        }
+      }
+    }
+    return output;
+  }
 }
+
+
+let ht = new HashTable();
+
+ht._set('potato', 'chip')
+ht._set('car', 'keys')
+ht._set('banana', 'stand')
+ht._set('KUT', 'X')
+
+
