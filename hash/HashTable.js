@@ -13,7 +13,7 @@ class HashTable {
     return total;
   }
   _set(key, val) {
-    let hash = this.hash(key);
+    let hash = this._hash(key);
     // 4
     //          *
     // [ , , , , ]
@@ -39,7 +39,7 @@ class HashTable {
   keys() {
     let output = [];
     for (let i = 0 ; i < this.keyMap.length ; i++) {
-      let slot = keyMap[i];
+      let slot = this.keyMap[i];
       if(slot) {
         for( let j = 0 ; j < slot.length ; j++) {
           let keyValue = slot[j];
