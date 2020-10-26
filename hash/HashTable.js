@@ -36,4 +36,15 @@ class HashTable {
     }
     return undefined;
   }
+  keys() {
+    let output = [];
+    for (let i = 0 ; i < this.keyMap.length ; i++) {
+      let slot = keyMap[i];
+      for( let j = 0 ; j < slot.length ; j++) {
+        let keyValue = slot[j];
+        output.push(keyValue[0]);
+      }
+    }
+    return output;
+  }
 }
