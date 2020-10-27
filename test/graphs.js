@@ -53,7 +53,7 @@ describe('graphs', ()=> {
       g.addVertex('Dallas');
 
       g.addEdge('Houston', 'Austin');
-      g.addEdge('Austin', 'Dalls');
+      g.addEdge('Austin', 'Dallas');
       g.addEdge('Dallas', 'Houston');
 
       g.removeEdge('Austin', 'Houston')
@@ -61,7 +61,7 @@ describe('graphs', ()=> {
       let expected = {
         Houston: ['Dallas'],
         Austin: ['Dallas'],
-        Dallas: ['Houston', 'Austin']
+        Dallas: ['Austin', 'Houston']
       }
 
       expect(g.adjacencyList).to.deep.equal(expected);
