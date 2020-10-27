@@ -16,9 +16,15 @@ class Graph {
   }
 
   removeEdge(v1, v2) {
-    console.log(this.adjacencyList);
     this.adjacencyList[v1] = this.adjacencyList[v1].filter(vertex => vertex !== v2)
     this.adjacencyList[v2] = this.adjacencyList[v2].filter(vertex => vertex !== v1)
+  }
+
+  removeVertex(vertex) {
+    for(let v in this.adjacencyList) {
+      this.adjacencyList[v] = this.adjacencyList[v].filter(v => v !== vertex)
+    }
+    delete this.adjacencyList[vertex]
   }
 }
 
