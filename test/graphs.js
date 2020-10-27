@@ -9,7 +9,16 @@ describe('graphs', ()=> {
       let graph = new Graph();
 
       expect(graph).to.be.an('object');
-      expect(graph).to.have.property('adjacencyList').to.deep.equal([]);
+      expect(graph).to.have.property('adjacencyList').to.deep.equal({});
+    })
+  })
+  describe('#addVertex', ()=> {
+    it('should add a vertex to the adjacency list', ()=> {
+      let graph = new Graph();
+      graph.addVertex('Tokyo');
+
+      expect(graph.adjacencyList).to.have.property('Tokyo')
+      expect(graph.adjacencyList.Tokyo).to.deep.equal([])
     })
   })
 })
