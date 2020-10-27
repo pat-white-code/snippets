@@ -22,7 +22,7 @@ class Graph {
 
   removeVertex(vertex) {
     for(let v in this.adjacencyList) {
-      this.adjacencyList[v] = this.adjacencyList[v].filter(v => v !== vertex)
+      this.removeEdge(v, vertex)
     }
     delete this.adjacencyList[vertex]
   }
