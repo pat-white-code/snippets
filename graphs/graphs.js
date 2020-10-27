@@ -6,10 +6,10 @@ class Graph {
     this.adjacencyList[vertex] = []
   }
 
-  addEdge(vertex1, vertex2) {
-    if(this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
-      this.adjacencyList[vertex1].push(vertex2);
-      this.adjacencyList[vertex2].push(vertex1);
+  addEdge(v1, v2) {
+    if(this.adjacencyList[v1] && this.adjacencyList[v2]) {
+      this.adjacencyList[v1].push(v2);
+      this.adjacencyList[v2].push(v1);
     } else {
       return new Error('vertex does not exist')
     }

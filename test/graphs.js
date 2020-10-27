@@ -45,4 +45,37 @@ describe('graphs', ()=> {
       // expect(g.adjacencyList.Austin).to.deep.equal(['Houston'])
     })
   })
+  describe('#removeEdge', ()=> {
+    it('should remove a relationship between two edeges', ()=> {
+      let g = new Graph();
+      g.addVertex('Houston');
+      g.addVertex('Austin');
+      g.addVertex('Dallas');
+
+      g.addEdge('Houston', 'Austin');
+      g.addEdge('Austin', 'Dalls');
+      g.addEdge('Dallas', 'Houston');
+
+      g.removeEdge('Austin', 'Houston')
+
+      let expected = {
+        Houston: ['Dallas'],
+        Austin: ['Dallas'],
+        Dallas: ['Houston', 'Austin']
+      }
+
+      expect(g.adjacencyList).to.deep.equal(expected);
+    })
+    it('should handle errors', ()=> {
+      let g = new Graph();
+      g.addVertex('Houston');
+      g.addVertex('Austin');
+      g.addVertex('Dallas');
+
+      let returned = g.addEdge('Houston', 'San Antonio');
+
+      expect(returned).to.be.an('error');
+      // expect(g.adjacencyList.Austin).to.deep.equal(['Houston'])
+    })
+  })
 })
