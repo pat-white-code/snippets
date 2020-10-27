@@ -1,5 +1,5 @@
 const chai = require('chai'), expect = chai.expect;
-const reverse = require('../interview-cake/reverse-array-in-place');
+const reverse = require('../../interview-cake/reverse-array-in-place');
 
 
 describe('reverse-in-place', ()=> {
