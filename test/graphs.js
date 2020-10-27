@@ -78,4 +78,25 @@ describe('graphs', ()=> {
       // expect(g.adjacencyList.Austin).to.deep.equal(['Houston'])
     })
   })
+  describe('#removeVertex', ()=> {
+    it('should remove a vertex and all edges', ()=> {
+      let g = new Graph();
+      g.addVertex('Houston');
+      g.addVertex('Austin');
+      g.addVertex('Dallas');
+
+      g.addEdge('Houston', 'Austin');
+      g.addEdge('Austin', 'Dallas');
+      g.addEdge('Dallas', 'Houston');
+
+      g.removeVertex('Houston')
+
+      let expected = {
+        Austin: ['Dallas'],
+        Dallas: ['Austin']
+      }
+
+      expect(g.adjacencyList).to.deep.equal(expected);
+    })
+  })
 })
