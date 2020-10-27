@@ -33,5 +33,16 @@ describe('graphs', ()=> {
       expect(g.adjacencyList.Houston).to.deep.equal(['Austin'])
       expect(g.adjacencyList.Austin).to.deep.equal(['Houston'])
     })
+    it('should handle errors', ()=> {
+      let g = new Graph();
+      g.addVertex('Houston');
+      g.addVertex('Austin');
+      g.addVertex('Dallas');
+
+      let returned = g.addEdge('Houston', 'San Antonio');
+
+      expect(returned).to.be.an('error');
+      // expect(g.adjacencyList.Austin).to.deep.equal(['Houston'])
+    })
   })
 })
