@@ -21,4 +21,17 @@ describe('graphs', ()=> {
       expect(graph.adjacencyList.Tokyo).to.deep.equal([])
     })
   })
+  describe('#addEdge', ()=> {
+    it('should add a relationship between two edeges', ()=> {
+      let g = new Graph();
+      g.addVertex('Houston');
+      g.addVertex('Austin');
+      g.addVertex('Dallas');
+
+      g.addEdge('Houston', 'Austin');
+
+      expect(g.adjacencyList.Houston).to.deep.equal(['Austin'])
+      expect(g.adjacencyList.Austin).to.deep.equal(['Houston'])
+    })
+  })
 })

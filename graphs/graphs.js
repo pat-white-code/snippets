@@ -2,8 +2,8 @@ class Graph {
   constructor() {
     this.adjacencyList = {}
   }
-  addVertex(val) {
-    this.adjacencyList[val] = []
+  addVertex(vertex) {
+    this.adjacencyList[vertex] = []
   }
 }
 
