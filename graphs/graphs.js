@@ -21,8 +21,9 @@ class Graph {
   }
 
   removeVertex(vertex) {
-    for(let v in this.adjacencyList) {
-      this.removeEdge(v, vertex)
+    while(this.adjacencyList[vertex].length) {
+      const adjacencyVertex = this.adjacencyList[vertex].pop();
+      this.removeEdge(vertex, adjacencyVertex);
     }
     delete this.adjacencyList[vertex]
   }
