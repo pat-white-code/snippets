@@ -14,4 +14,33 @@
 // console.log(mergeArrays(myArray, alicesArray));
 // // logs [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19]
 
-module.exports = {mergeArrays}
+const mergeArrays = (leftArr, rightArr) => {
+  //                                       i
+  // const myArray = [3, 4, 6, 10, 11, 15];
+  //                                       j
+  // const alicesArray = [1, 5, 8, 12, 14, 19, 20];
+  let i=0, j = 0;
+  let output = []
+  while(i < leftArr.length && j < rightArr.length) {
+    let left = leftArr[i]
+    let right = rightArr[j]
+    if(left < right) {
+      output.push(left)
+      i++
+    } else {
+      output.push(right)
+      j++
+    }
+  }
+  if(i < leftArr.length) {
+    let slice = leftArr.slice(i)
+    output = output.concat(slice)
+  }
+  if(j < rightArr.length) {
+    let slice = rightArr.slice(j)
+    output = output.concat(slice)
+  }
+  return output;
+}
+
+module.exports = { mergeArrays }

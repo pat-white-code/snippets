@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Graph = require('../graphs/graphs');
+const Graph = require('../../graphs/graphs');
 
 describe('graphs', ()=> {
   describe('#data structure', ()=> {
