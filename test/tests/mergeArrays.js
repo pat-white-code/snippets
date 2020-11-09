@@ -1,4 +1,4 @@
-const { mergeArrays } = require('../interview-cake/mergeArrays')
+const { mergeArrays } = require('../../interview-cake/mergeArrays')
 const { expect } = require("chai")
 
 describe('mergeArrays', ()=> {
