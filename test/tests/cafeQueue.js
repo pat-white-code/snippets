@@ -1,4 +1,4 @@
-const { cafeQueue } = require('../interview-cake/cafeQueue');
+const { cafeQueue } = require('../../interview-cake/cafeQueue');
 const { expect } = require("chai")
 
 describe('cafeQueue', ()=> {
