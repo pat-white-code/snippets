@@ -38,8 +38,8 @@ const cafeQueue = (takeOut, dineIn, servedOrders) => {
 //                          i
 // Take Out Orders: [17, 8, 24]
 //                          j
-// Dine In Orders: [12, 19, 2]
-//                                 k
+// Dine In Orders: [12, 19, 2, 33]
+//                                     k
 //  Served Orders: [17, 8, 12, 19, 24, 2]
 // => true
 
@@ -69,7 +69,12 @@ const cafeQueue = (takeOut, dineIn, servedOrders) => {
       return false
     }
   }
-  return true
+  
+  if(i < takeOut.length || j < dineIn.length) {
+    return false
+  } else { 
+    return true
+  }
 }
 
 console.log(cafeQueue([17, 8, 24], [12, 19, 2], [17, 8, 12, 19, 24, 2]))

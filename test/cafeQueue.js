@@ -6,4 +6,7 @@ describe('cafeQueue', ()=> {
     expect(cafeQueue([1, 3, 5],[2, 4, 6], [1, 2, 4, 6, 5, 3])).to.equal(false);
     expect(cafeQueue([17, 8, 24], [12, 19, 2], [17, 8, 12, 19, 24, 2])).to.equal(true);
   })
+  it('should check if every order has been served', ()=> {
+    expect(cafeQueue([17, 8, 24], [12, 19, 2, 32], [17, 8, 12, 19, 24, 2])).to.equal(false);
+  })
 })
