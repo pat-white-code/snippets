@@ -18,3 +18,7 @@ const permutationPalindrome = (str) => {
   if(odds > 1) return false;
   return true;
 }
+
+module.exports = {
+  permutationPalindrome
+}
