@@ -60,3 +60,7 @@ const wordCloud = (str) => {
 // i++}
 
 console.log(wordCloud("Add milk and eggs, then add flour and sugar."))
+
+module.exports = {
+  wordCloud
+}
