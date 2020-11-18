@@ -31,10 +31,19 @@ const wordCloud = (str) => {
     if(regex.test(str[i])) {
       end++;
     } else if(start !== end) {
-      let word = str.substring(start, end).toLowerCase()
-      console.log(word);
+      let word = str.substring(start, end)
+      let altWord;
+      if(!word[0].match(/[A-Z]/)) {
+        altWord = word.charAt(0).toUpperCase() + word.slice(1)
+      }
+      // Add,
+      // add
       if(wordMap[word]) { 
         wordMap[word]++
+      } else if(wordMap[altWord]) {
+        let count = wordMap[altWord]
+        wordMap[word] = count + 1;
+        delete wordMap[altWord];
       } else {
         wordMap[word] = 1
       }
