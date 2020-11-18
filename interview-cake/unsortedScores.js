@@ -51,7 +51,6 @@ const sortScores = (arr, highestScore) => {
   return sorted;
 }
 
-const unsortedScores = [37, 89, 89, 41, 65, 91, 91, 53];
-const HIGHEST_POSSIBLE_SCORE = 100;
-
-console.log(sortScores(unsortedScores, HIGHEST_POSSIBLE_SCORE));
+module.exports = {
+  sortScores
+}
