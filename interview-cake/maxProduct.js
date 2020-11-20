@@ -34,11 +34,11 @@ const maxProduct = arr => {
   for(let i = 1 ; i < arr.length ; i++) {
     let current = arr[i]
     if(i > 2) {
-      highestProd3 = Math.max(current * maxProd2, current* minProd2, highestProd3)
+      highestProd3 = Math.max(current * maxProd2, current * minProd2, highestProd3)
     }
     if(i > 1){
-      minProd2 = Math.min(current * min, current * max)
-      maxProd2 = Math.max(current * min, current * max)
+      minProd2 = Math.min(current * min, current * max, minProd2);
+      maxProd2 = Math.max(current * min, current * max, maxProd2);
     }
     min = Math.min(current, min);
     max = Math.max(current, max)
@@ -92,4 +92,8 @@ const maxProduct = arr => {
 //   return max * second * third
 // }
 
-console.log(maxProduct([1, 10, -5, 1, -100]))
+// console.log(maxProduct([1, 10, -5, 1, -100]))
+
+module.exports = {
+  maxProduct
+}
