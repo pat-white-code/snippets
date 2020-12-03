@@ -1,4 +1,4 @@
-const { maxProduct } = require('../interview-cake/maxProduct');
+const { maxProduct } = require('../../interview-cake/maxProduct');
 const { expect } = require("chai")
 
 describe('max product', ()=> {

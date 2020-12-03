@@ -1,4 +1,4 @@
-const { permutationPalindrome } = require('../interview-cake/permutationPalindrome');
+const { permutationPalindrome } = require('../../interview-cake/permutationPalindrome');
 const { expect } = require("chai")
 
 describe('permutationsPalindrome', ()=> {

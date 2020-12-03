@@ -1,4 +1,4 @@
-const { wordCloud } = require('../interview-cake/wordCloud');
+const { wordCloud } = require('../../interview-cake/wordCloud');
 const { expect } = require("chai")
 
 describe('wordCloud', ()=> {

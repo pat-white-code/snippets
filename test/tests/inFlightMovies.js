@@ -1,4 +1,4 @@
-const { inFlightMovies } = require('../interview-cake/inFlightMovies');
+const { inFlightMovies } = require('../../interview-cake/inFlightMovies');
 const { expect } = require("chai")
 
 describe('inFlightMovies', ()=> {

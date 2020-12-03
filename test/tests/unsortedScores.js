@@ -1,4 +1,4 @@
-const { sortScores } = require('../interview-cake/unsortedScores');
+const { sortScores } = require('../../interview-cake/unsortedScores');
 const { expect } = require("chai")
 
 describe('unsorted scores', ()=> {
