@@ -1,5 +1,5 @@
 const { findRotationPoint } = require('../interview-cake/findRotationPoint');
-const { featuredProduct, minX } = require('../interview-cake/rabbet');
+const { featuredProduct, minX } = require('../interview-cake/challenge');
 const { expect } = require("chai")
 
 // describe('findRotationPoint', ()=> {
