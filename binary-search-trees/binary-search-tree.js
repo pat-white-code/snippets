@@ -128,9 +128,10 @@ class BST {
     return output;
   }
 
-  isSuperBalanced = () => {
-    let maxDepth = 0;
-    let minDepth = 0;
+  isSuperBalanced(){
+    if(!this.root) return true;
+    let maxDepth;
+    let minDepth;
   
     const traverseDepth = (node, currentDepth) => {
       if(node.left) {
@@ -140,13 +141,24 @@ class BST {
         traverseDepth(node.right, currentDepth + 1)
       }
       if(!node.left && !node.right) {
-        maxDepth = math.Max(currentDepth, maxDepth);
-        minDepth = math.Min(currentDepth, minDepth);
+        if(!maxDepth) {
+          maxDepth = currentDepth;
+        } else {
+          maxDepth = Math.max(currentDepth, maxDepth);
+        }
+        if(!minDepth) {
+          minDepth = currentDepth;
+        } else {
+          minDepth = Math.min(currentDepth, minDepth);
+        }
       }
     }
 
     traverseDepth(this.root, 0);
-    
+
+    console.log('MAX', maxDepth)
+    console.log('min', minDepth)
+
     if(minDepth + 1 < maxDepth) {
       return false
     } else {

@@ -2,7 +2,7 @@ const chai = require('chai'),
   expect = chai.expect, 
   should = chai.should();
 
-const BST = require('../../binary-search-trees/binary-search-tree');
+const BST = require('../binary-search-trees/binary-search-tree');
 
 describe('Binary Search Tree', ()=>{
   describe('#constructor', ()=>{
@@ -127,6 +127,64 @@ describe('Binary Search Tree', ()=>{
       //  2 4 7  10
       //1       9
       expect(actual).to.deep.equal(expected)
+    })
+  })
+  describe('#isSuperBalanced', ()=>{
+    it('Should return true if tree is balanced', ()=> {
+      let bst = new BST()
+      bst.insert(5)
+      bst.insert(3)
+      bst.insert(8)
+      bst.insert(2)
+      bst.insert(7)
+      bst.insert(10)
+      bst.insert(9)
+      bst.insert(1)
+      bst.insert(4)
+
+      let actual = bst.isSuperBalanced();
+      let expected = true;
+      //      5
+      //   3    8
+      //  2 4 7  10
+      //1       9
+      expect(actual).to.equal(expected)
+    })
+    it('Should return a false if tree is not balanced', ()=> {
+      let bst = new BST()
+      bst.insert(8)
+      bst.insert(5)
+      bst.insert(9)
+      bst.insert(2)
+      bst.insert(7)
+      bst.insert(-1)
+      bst.insert(-2)
+      bst.insert(-3)
+
+      let actual = bst.isSuperBalanced();
+      let expected = false;
+      //      8
+      //   5    9
+      //  2 7     10
+      //1  3  4   9
+      expect(actual).to.equal(expected)
+    })
+    it('Should return true on single node tree', ()=> {
+      let bst = new BST()
+      bst.insert(10)
+
+      let actual = bst.isSuperBalanced();
+      let expected = true;
+      //      10
+      expect(actual).to.equal(expected)
+    })
+    it('Should return true on empty tree', ()=> {
+      let bst = new BST()
+
+      let actual = bst.isSuperBalanced();
+      let expected = true;
+      //      10
+      expect(actual).to.equal(expected)
     })
   })
 })
