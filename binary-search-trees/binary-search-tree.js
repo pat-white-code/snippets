@@ -11,35 +11,6 @@ class BST {
     this.root = null;
   }
 
-  // insert(val) {
-  //   let newNode = new Node(val);
-  //   if(!this.root) {
-  //     this.root = newNode;
-  //     return this;
-  //   } else {
-  //     let current = this.root;
-  //     while (current) {
-  //       if(current.val === newNode.val) return undefined;
-  //       if (newNode.val > current.val){
-
-  //         if(current.right) {
-  //           current = current.right;
-  //         } else {
-  //           current.right = newNode;
-  //           return this
-  //         }
-  //       } else {
-  //         if(current.left) {
-  //           current = current.left;
-  //         } else {
-  //           current.left = newNode;
-  //           return this;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
   insert(val, current = this.root) {
     // base case:
     if (!this.root) {
@@ -155,6 +126,32 @@ class BST {
       output = this.dfsPreRec(output, node.right)
     };
     return output;
+  }
+
+  isSuperBalanced = () => {
+    let maxDepth = 0;
+    let minDepth = 0;
+  
+    const traverseDepth = (node, currentDepth) => {
+      if(node.left) {
+        traverseDepth(node.left, currentDepth + 1)
+      }
+      if(node.right) {
+        traverseDepth(node.right, currentDepth + 1)
+      }
+      if(!node.left && !node.right) {
+        maxDepth = math.Max(currentDepth, maxDepth);
+        minDepth = math.Min(currentDepth, minDepth);
+      }
+    }
+
+    traverseDepth(this.root, 0);
+    
+    if(minDepth + 1 < maxDepth) {
+      return false
+    } else {
+      return true;
+    }
   }
 }
 //      5
