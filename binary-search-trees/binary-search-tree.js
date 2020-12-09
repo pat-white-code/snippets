@@ -151,6 +151,7 @@ class BST {
         } else {
           minDepth = Math.min(currentDepth, minDepth);
         }
+        if(maxDepth > minDepth + 1) return false;
       }
     }
 
