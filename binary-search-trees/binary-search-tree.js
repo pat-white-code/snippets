@@ -31,18 +31,26 @@ class BST {
       this.insert(val, current.left);
   }
 
-  find(target) {
-    // if(this.root.val === target) return true;
-    let current = this.root;
-    while(current) {
-      if(current.val === target) return true;
-
-      if(target >= this.root) {
-        current = current.right;
-      } else {
-        current = current.left
-      }
+  find(target, current = this.root) {
+    if(current.val === target) return true;
+    if(target < current) {
+      this.find(target, current.left)
     }
+    if(target > current) {
+      this.find(target, current.right)
+    }
+    if(!current.left && !current.right) return false;
+    
+    // let current = this.root;
+    // while(current) {
+    //   if(current.val === target) return true;
+
+    //   if(target >= this.root) {
+    //     current = current.right;
+    //   } else {
+    //     current = current.left
+    //   }
+    // }
     return false;
   }
   bfs() {
