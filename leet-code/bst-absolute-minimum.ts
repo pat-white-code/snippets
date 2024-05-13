@@ -24,19 +24,16 @@ function buildNodesArray(root: TreeNode | null, accum: number[]): number[] {
 
 function getMinimumDifference(root: TreeNode | null): number | null {
     const nodesArray = buildNodesArray(root, [])
-    console.log('nodesArray', nodesArray)
-    let minDiff: number | null = null
-    let prev: number | null = null
+    let minDiff: number | null = Infinity
 
-    for (let i = 0; i < nodesArray.length; i++) {
+    let i: number = 0
+    while(i < nodesArray.length) {
         let current = nodesArray[i]
-        if (prev !== null && !minDiff) {
-            minDiff = Math.abs(prev - current)
-        } else if (prev !== null && minDiff) {
-            let currentDiff = Math.abs(current - prev)
-            minDiff = Math.min(minDiff, currentDiff)
+        let prev = nodesArray[i - 1]
+        if (prev !== undefined) {
+            minDiff = Math.min(minDiff, Math.abs(prev - current))
         }
-        prev = current
+        i++
     }
 
     return minDiff
