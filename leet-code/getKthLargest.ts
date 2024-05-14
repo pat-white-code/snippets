@@ -1,9 +1,9 @@
-const swap = (index1: number, index2: number, array: number[]) => {
-    //mutate array
-    let temp = array[index1]
-    array[index1] = array[index2]
-    array[index2] = temp
-}
+// const swap = (index1: number, index2: number, array: number[]) => {
+//     //mutate array
+//     let temp = array[index1]
+//     array[index1] = array[index2]
+//     array[index2] = temp
+// }
 
 function findKthLargest(nums: number[], k: number): number {
     // [3,2,1,5,6,4]
