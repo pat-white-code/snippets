@@ -1,112 +1,34 @@
 function intToRoman(num: number): string {
-    // while num > 0
-    // does the number start with 4?
+    let roman = ''
+
+    const numeralMatrix =
+        [
+            [],
+            [null, 'I', 'X', 'C', 'M'],
+            [null, 'II', 'XX', 'CC', 'MM'],
+            [null, 'III', 'XXX', 'CCC', 'MMM'],
+            [null, 'IV', 'XL', 'CD'],
+            [null, 'V', 'L', 'D'],
+            [null, 'VI', 'LX', 'DC'],
+            [null, 'VII', 'LXX', 'DCC'],
+            [null, 'VIII', 'LXXX', 'DCCC'],
+            [null, 'IX', 'XC', 'CM']
+        ]
+
+    const getRoman = (num: number) => {
+        let numString = num.toString()
+        let firstInt = numString[0]
+        let numLength = numString.length
+        const int = parseInt(firstInt) * Math.pow(10, numLength - 1)
+        const numeral = numeralMatrix[firstInt][numLength]
+        return [int, numeral]
+    }
     while (num > 0) {
-        let function intToRoman(num: number): string {
-    // while num > 0
-    // does the number start with 4?
-    while(num > 0) {
-        let numString = num.toString()
-        let numLength = numString.length
-        let firstInt = numString[0]
-        let int = parseInt(numString[0]) * 10 ^ numString.length
-        while(int > 0) {
-            let roman = ''
-            if(firstInt === '4' || firstInt === '9' ) {
-                if(numLength === 1) {
-                    return firstInt === '4' ? 'IV' : 'IX'
-                }
-                if(numLength === 2) {
-                    return firstInt === '4' ? 'XL' : 'XC'
-                }
-                if(numLength === 3) {
-                    return firstInt === '4' ? 'CD' : 'CM'
-                }
-            }
-        }
-        
-        while(int > 0) {
-            if(num >= 1000) {
-                output += 'M'
-                int =- 1000
-        }
-        if(num >= 500) {
-            output += 'D'
-                int =- 500
-        }
-        if(num >= 100) {
-            output += 'C'
-                int =- 100
-        }
-        if(num >=50) {
-            output += 'L'
-                int =- 500
-        }
-        if(num >=10) {
-            return 'X'
-            output += 'X'
-                int =- 10
-        }
-        if(num >= 5) {
-            output += 'V'
-                int =- 5
-        }
-        if(num >=) {
-           output += 'I'
-                int =- 1
-         }
-        }
-        
-};
-}
-        let numString = num.toString()
-        let numLength = numString.length
-        let firstInt = numString[0]
-        let int = parseInt(numString[0]) * 10 ^ numString.length
+        const [int, numeral] = getRoman(num)
+        num -= int
+        roman += numeral
+    }
 
-        if (firstInt === '4' || firstInt === '9') {
-            if (numLength === 1) {
-                return firstInt === '4' ? 'IV' : 'IX'
-            }
-            if (numLength === 2) {
-                return firstInt === '4' ? 'XL' : 'XC'
-            }
-            if (numLength === 3) {
-                return firstInt === '4' ? 'CD' : 'CM'
-            }
-        }
+    return roman
 
-        while (int > 0) {
-            if (num >= 1000) {
-                output += 'M'
-                int = - 1000
-            }
-            if (num >= 500) {
-                output += 'D'
-                int = - 500
-            }
-            if (num >= 100) {
-                output += 'C'
-                int = - 100
-            }
-            if (num >= 50) {
-                output += 'L'
-                int = - 500
-            }
-            if (num >= 10) {
-                return 'X'
-                output += 'X'
-                int = - 10
-            }
-            if (num >= 5) {
-                output += 'V'
-                int = - 5
-            }
-            if (num >=) {
-                output += 'I'
-                int = - 1
-            }
-        }
-
-    };
 }
