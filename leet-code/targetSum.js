@@ -5,14 +5,15 @@ class Solution {
      * @return {number}
      */
     findTargetSumWays(nums, target) {
-        // const cache = {}
+        //init cache
+        const cache = {};
 
-        // for(let i = 0; i <= nums.length; i++) {
-        //     cache[i] = {}
-        // }
+        for (let i = 0; i <= nums.length; i++) {
+            cache[i] = {};
+        }
 
         const dfsHelper = (i, nums, target, sum) => {
-            // if i > length of nums, return 0
+            // base case, return 1 if success, else 0
             if (i === nums.length) {
                 if (sum === target) {
                     return 1;
@@ -20,26 +21,23 @@ class Solution {
                     return 0;
                 }
             }
-            // if(cache[sum]?.[i]) {
-            //     return cache[sum][i]
-            // }
-            // if (cache[])
-            // cache: {
-            //     [sum]: {
-            // }
-            // }
+
+            // check cache
+            if (cache[i]?.[sum] !== undefined) {
+                return cache[i][sum];
+            }
 
             // add number
-            // const plus = cache[i + 1][sum + nums[i]] = dfsHelper(i + 1, nums, target, sum + nums[i])
             const plus = dfsHelper(i + 1, nums, target, sum + nums[i]);
+
             //subtract number
-            // const minus = cache[i + 1][sum - nums[i]] = dfsHelper(i + 1, nums, target, sum - nums[i])
             const minus = dfsHelper(i + 1, nums, target, sum - nums[i]);
-            return plus + minus;
+
+            // save to cache
+            cache[i][sum] = plus + minus;
+            return cache[i][sum];
         };
+
         return dfsHelper(0, nums, target, 0);
-        // [+2] //[-2]
-        //[+2+2] [+2-2] //[-2-2] //[-2+2]
-        //+2+2+2 +2+2-2 +2-2+2 +2-2-2
     }
 }
